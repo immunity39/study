@@ -1,0 +1,16 @@
+git setting
+//ssh key make
+ssh-keygen -t rsa
+
+//ssh connection confirmation
+ssh -T git@[Host]
+ex. ssh -T git@github.com
+
+//ssh setting
+git config remote.origin.url
+/*origin set url
+
+//url update
+git remote set-url origin git@[Host]:[UserID]/[repository].git
+
+setting ~/.ssh/config file
