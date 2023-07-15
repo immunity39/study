@@ -1,0 +1,55 @@
+dockerを始める！！！
+
+docker とは...
+コンテナ型の仮想環境をつくるもの
+
+--install--
+docker document
+で検索して公式ページからdownload formを見つける
+win11の場合は、ubuntu(linux)環境とwsl2が使える必要がある
+install (.exe)ファイルをダウンロード
+解凍してインストールする。
+accountを作成してアクセス。
+
+--hello world--
+コマンドプロンプトを開き以下のコマンドを実行
+docker -v
+バージョンとインストールできてるかの確認
+docker run ubuntu:20.04 echo hello world
+これを実行すると...
+hello world
+がコマンドプロンプト上に返される。
+それぞれdocer runで新しいコンテナの作成
+ubuntu:20.04 実行する環境
+echo hello world 実行するコマンド
+となる。
+今回はubuntu:20.04環境下でecho hello worldを打ったことと同等であるため、
+hello worldが表示される。
+
+他の方法もある。ーーー
+
+--root access--
+rootアカウントにアクセスする場合は、
+docker run -it ubuntu:20.04 bash
+で可能
+wslしたときみたいになるし、従来のコマンドも使える(viはない)
+そのため、pwdしたりls -lが使える。
+
+--rails install--
+rootアクセス
+docker run -it ubuntu:20.04 bash
+root上なのでsudoがいらない
+apt update
+
+docker run -v "%cd%"/sinatra:/apt/myapp -w /apt/myapp -d -p 4567:4567 --net my-net my-ruby:dockerfile myapp.rb
+docker  run --name my-db -e MYSQL_ROOT_PASSWORD=rootpassword -d --platform linux/x86_64 -v "% cd%":/mysql/docker--.d :do..d --net my-net mysql:8.0.29
+
+
+docker network create my-net
+
+my-net my-ruby;dockerfile ruby myapp.rb -o 0.0.0.0
+
+mysql.rb
+//front localhost
+host -> my-db
+// sinatra-contrib
