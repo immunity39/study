@@ -1,0 +1,34 @@
+サーバーの起動方法として
+rails s
+を実行する方法と
+bin/rails server -b 0.0.0.0 -p 3000
+のようにip addressをbindして起動する方法がある。
+
+基本的にMVc(Model, View, Controll)モデルで開発を行う。
+Modelはデータベースなどでデータを管理する。
+ViewはHTMLでデータを表示したり利用者からの画面入力を受け付ける。
+ControllはModelからデータを読みだして成形してViewに引き渡したり、Viewからデータを受け取って成形してModelに格納したりする。
+
+//update
+rails sで動作させようとしたところbundlerのversionが古いと言われたのでアップデートしようとしたところ、permissionエラーが出される。
+rbenvでrubyを管理することにする
+参照元 https://qiita.com/nishina555/items/63ebd4a508a09c481150
+rbenv install -l
+によってインストール可能なversionを調べた。
+rbenv install 3.0.6をインストールした。(2023/08/04)
+
+myapp/.ruby-version
+ファイルの内容を変更してsystemの設定を変更
+~/.bashrcの内容に以下を追加
+[[ -d ~/.rbenv ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
+これでrubyとgemがrbenvのパスをさすようになる
+
+その後
+gem update --system
+gem update
+bundle update
+によってupdate完了
+bundler -v
+で確認
