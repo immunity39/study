@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+void magazine(void);
+
 int main(void) {
     printf("BookStore\n");
     magazine();
