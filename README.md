@@ -1,11 +1,8 @@
-# study
+# 概要
+勉強会目的のフォルダ、リポジトリです。
 
-I will study more programming language.
+## collaboration
+共同作業や複数人での作業に利用するフォルダです。
 
-## paiza
-
-paiza is paiza skill's folder
-
-## ruby
-
-ruby is for study ruby folder
+## immunity
+immunity39が利用している個人用フォルダです。
