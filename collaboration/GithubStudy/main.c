@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void bookshelf(void);
+void magazine(void);
 
 int main(void) {
   printf("BookStore\n");
