@@ -1,15 +1,19 @@
 #include <stdio.h>
 
-int main(void) {
-    printf("BookStore\n");
-    magazine();
+void bookshelf(void);
 
-    return 0;
+int main(void) {
+  printf("BookStore\n");
+  magazine();
+
+  return 0;
 }
 
 void magazine(void) {
-    char title[50];
-    int price;
+  char title[50];
+  int price;
 
-    printf("Magazine\n");
+  printf("Magazine\n");
 }
+
+void bookshelf(void) { printf("Bookshelf\n"); }
