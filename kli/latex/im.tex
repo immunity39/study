@@ -1,0 +1,71 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[paper=b4j, landscape, top=5truemm, bottom=5truemm, left=13truemm, right=10truemm]{geometry} % 用紙サイズをB5横にする
+\usepackage{amssymb, amsmath}
+\usepackage{tcolorbox}
+\pagestyle{empty} % ページ番号を消す
+\usepackage{comment} % コメントアウト用
+\usepackage{ascmac} % 枠つけ用
+\newcommand{\vectw}[2]{\left( \begin{array}{r} #1 \\ #2 \end{array} \right)} % 2ベクトルマクロ
+\newcommand{\vecth}[3]{\left( \begin{array}{r} #1 \\ #2 \\ #3 \end{array} \right)} % 3ベクトルマクロ
+
+\begin{document}
+
+\leftline{{\bf Information Mathematics} (情報数学2)} % \rightline{\date{} \;\; 【vol. 13】}
+\hrulefill
+
+\begin{figure}[htbp]
+	\begin{tabular}{cc}
+		\begin{minipage}[htbp]{.465\textwidth}
+			{\Large {\bf 1.2 線形独立と線形従属}} \par \vspace{-4mm}
+			\hrulefill
+			\begin{tcolorbox}[title=線形結合（一次結合）の定義]
+				$ v_{1}, v_{2}, \ldots, v_{n} \in V, k_1, k_2, \ldots, k_n \in K $ とする. このとき,
+				$$ k_1v_1 + k_2v_2 + \cdots + k_nv_n $$
+				の形で表されるものを\textbf{線形結合}という. ($\Rightarrow$ いわば, \fbox{ベクトルのスカラー倍の和で表された}形) \\
+				$\blacksquare$ 例 \par
+				$ V = \mathbb{R}^2, K = \mathbb{R} $ とするとき, 2 つの2 次元ベクトル $ v_1, v_2 \in V$ が \par
+				$ v_1 = \vectw{1}{0}, v_2 = \vectw{0}{1} $ であるとき, $ \vectw{3}{5} $ というベクトルは \par
+				$ \vectw{3}{5} = 3 \vectw{1}{0} + 5 \vectw{0}{1} = 3v_1 + 5v_2 $ という線形結合で表すことができる. \par
+			\end{tcolorbox}
+			【{\bf 問題 3}】$ V = \mathbb{R}^3, K = \mathbb{R} $ とする. $ v_1 = \vecth{1}{0}{0}, v_2 = \vecth{0}{2}{0} $ という 2 つの 3 次元ベクトル\par
+			$ v_1, v_2 \in V $ が与えられているとき, 次の $ a \in V $ を $ v_1, v_2 $ の線形結合で翔ならその形で表せ. \par
+			(1) $ a = \vecth{3}{2}{0} $ \; (2) $ a = \vecth{2}{-4}{0} $ \; (3) $ a = \vecth{5}{1}{0} $ \; (4) $ a = \vecth{3}{2}{1} $
+			\vspace{2.5cm}
+			\begin{tcolorbox}[title=線形独立と線形従属の定義]
+				$ v_1, v_2, \ldots, v_n \in V, k_1, k_2, \ldots, k_n \in K $ とする. このときの線形結合を考えたとき,
+				$$ k_1v_1 + k_2v_2 + \cdots + k_nv_n  = 0 $$
+				を満たす $ k_1, k_2, \ldots, k_n$ が $ \ldots $ \par
+				$ \bullet $ いずれも 0 である場合に限られるとき, $ v_1, v_2, \ldots, v_n $ は\textbf{線形独立}であるという. \par
+				$ \bullet $ 0 以外に存在するとき, $ v_1, v_2, \ldots, v_n $ は\textbf{線形従属}であるという. \par
+				$\blacksquare$ 例 \par
+				$ V = \mathbb{R}^2, K = \mathbb{R} $ とするとき, $v_1 = \vectw{2}{0}, v_2 = \vectw{0}{3}$ という 2 つの2 次元ベクトル $ v_1, v_2 \in V$ が \par
+				あるとき, $ k_1 \vectw{2}{0} + k_2 \vectw{0}{3} = 0 $ を満たすためには, $ k_1 = k_2 = 0 $ でなければならない. よって, \par
+				$ v_1, v_2 $ は線形独立である.
+			\end{tcolorbox}
+
+		\end{minipage} \hspace{3mm}
+		\begin{minipage}[htbp]{.48\textwidth}
+			【問題 4】$ V = \mathbb{R}^3, K = \mathbb{R} $ とする. 次のベクトルの組が線形独立(従属)か判定せよ. \par
+			(1) $ v_1 = \vecth{1}{0}{0}, v_2 = \vecth{0}{1}{0}, v_3 = \vecth{0}{0}{1} $ \hspace{0.5cm} (2) $ v_1 = \vecth{3}{2}{3}, v_2 = \vecth{0}{2}{0}, v_3 = \vecth{1}{0}{1} $ \par
+			\vspace{3cm}
+			(3) $ v_1 = \vecth{1}{0}{0}, v_2 = \vecth{0}{2}{0}, v_3 = \vecth{2}{-4}{0} $ \hspace{0.5cm} (4) $ v_1 = \vecth{1}{0}{0}, v_2 = \vecth{0}{2}{0}, v_3 = \vecth{3}{2}{1} $ \par
+			\vspace{3cm}
+			\begin{shadebox}
+				与えられたベクトルの組が線形従属そのうちのあるベクトルは, 残りのベクトルの線形接合で表せる\par
+				(代替ができる). 逆に, 線形独立 $ \Rightarrow $ あるベクトルを表すためには\textbf{どのベクトルも欠けてはならず, 替え}\par
+				\textbf{が効かない存在}ということになる.
+			\end{shadebox} \vspace{3mm}
+			{\bf 1.2.1 線形空間の基底}
+			\begin{tcolorbox}[title=基底と次元の定義]
+				線形空間 $ V $ から取り出した要素(ベクトル)の組 $(v_1, v_2, \ldots, v_n)$ が\fbox{線形独立であって}, かつ \par
+				\fbox{ $ V $ の任意の要素が, $(v_1, v_2, \ldots, v_n)$ の線形結合で表せる}ときに, $(v_1, v_2, \ldots, v_n)$ を $ V $ の\textbf{基底}といい, \par
+				$ V = <v_1, v_2, \ldots, v_n> $ と書く. \par
+				このとき, 取り出した基底の個数のことを線形空間 $ V $ の\textbf{次元}といい, \fbox{$ \dim V $} と書く. \par
+			\end{tcolorbox}
+			【問題 5】$ V = \mathbb{R}^2, K = \mathbb{R} $ とするとき, $ v_1 = \vectw{1}{0}, v_2 = \vectw{0}{1} $ は $ \mathbb{R}^2 $ の基底であることを確認せよ. \par
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+
+\end{document}
