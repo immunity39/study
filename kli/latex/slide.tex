@@ -1,0 +1,121 @@
+% https://dreamer-uma.com/latex-beamer/
+%%%%%%%%%% Beamerの初期設定 %%%%%%%%%%%
+% beamerを使用する初期設定
+\documentclass[aspectratio=169, dvipdfmx, 12pt]{beamer}
+
+% 使用するパッケージ
+\usepackage{here, amsmath, latexsym, amssymb, bm, ascmac, mathtools, multicol, tcolorbox, subfig}
+
+%デザインの選択 (省略可)
+\usetheme{Boadilla}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%% Beamerの基本的なコード %%%%%%%%%%
+% 属性
+\title{タイトル}
+\subtitle{サブタイトル}
+\author[著者略称]{作者}
+\institute[所属略称]{所属}
+\date{\today}
+
+% スライドの始まり
+\begin{document}
+
+% タイトルページ
+\frame{\maketitle}
+
+% スライド Example
+\begin{frame}{スライド}
+	数式を書くことができるよ。
+	\begin{equation}
+		\frac{1}{s^{2}}\frac{\partial^{2} u}{\partial t^{2}} = \frac{\partial^{2} u}{\partial x^{2}} + \frac{\partial^{2} u}{\partial y^{2}} + \frac{\partial^{2} u}{\partial z^{2}}
+	\end{equation}
+\end{frame}
+
+% 目次ページ
+\begin{frame}{目次}
+	\tableofcontents
+\end{frame}
+
+% 目次の具体例
+\section{目次の具体例}
+\begin{frame}{スライド}
+	arrayも使えます.
+	\begin{align}
+		x & = a + 3 \\
+		y & = b -4
+	\end{align}
+\end{frame}
+
+% 箇条書き
+\section{箇条書き}
+\begin{frame}{箇条書き}
+	\begin{itemize}
+		\item item 1
+		      \begin{enumerate}
+			      \item item1-1
+			      \item item1-2
+		      \end{enumerate}
+		\item item 2
+		      \begin{enumerate}[I]
+			      \item item 2-1
+			      \item item 2-2
+			      \item item 2-3
+		      \end{enumerate}
+	\end{itemize}
+\end{frame}
+
+% ブロック環境
+\section{ブロック環境}
+\begin{frame}{ブロック環境}
+	% 通常のブロック
+	\begin{block}{block}
+		simple block
+	\end{block}
+	% 注意のブロック
+	\begin{alertblock}{alertblock}
+		alertblock
+	\end{alertblock}
+	% Example ブロック
+	\begin{exampleblock}{exampleblock}
+		exampleblock
+	\end{exampleblock}
+\end{frame}
+
+% 数学ブロック環境
+\begin{frame}{数学ブロック環境}
+	\begin{theorem}[定理名]
+		$e^{ix} = \cos x + i \sin x$
+	\end{theorem}
+	\begin{definition}[定義名]
+		$e^{x} \approx 1 + x$
+	\end{definition}
+	\begin{corollary}[系名]
+		$a + b + c = 0$
+	\end{corollary}
+	\begin{proof}
+		$\int_{-\infty}^{\infty} e^{-a x^{2}} = 2 \int_{0}^{\infty} e^{-a x^{2}}$
+	\end{proof}
+\end{frame}
+
+% 表スライド
+\section{表}
+\begin{frame}{表の追加}
+	\begin{table}
+		\caption{Caption}
+		\label{table:sample}
+		\centering
+		\begin{tabular}{ccc}
+			\hline
+			料理   & 値段  & 場所 \\
+			\hline \hline
+			チキン & 200円 & 公園 \\
+			ピザ   & 300円 & 公園 \\
+			ご飯   & 100円 & 室内 \\
+			パン   & 70円  & 室内 \\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+\end{document}
