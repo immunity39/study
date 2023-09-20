@@ -1,0 +1,440 @@
+\documentclass[dvipdfmx]{jsbook}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{listings,jvlisting,jlisting, color} % ソースコードの記述用
+\usepackage[bottom=15truemm, left=20truemm, right=20truemm]{geometry}	% 余白の設定
+\usepackage{okumacro} % ルビ用
+\usepackage{tcolorbox, ascmac} % 枠つけ用
+\pagestyle{headings} % ヘッダー
+
+
+\newcommand{\countup}[1]{\setcounter{chapter}{#1} \setcounter{section}{0}}
+\newcommand{\info}[2]{\begin{tcolorbox}[colframe=gray, colback=black!10!white, coltitle=white, fonttitle=\bfseries, title={#1}]
+{#2}\end{tcolorbox}}
+
+\lstset{
+	language=Python,    % 言語設定
+	frame=single,       % 枠設定
+	breaklines=true,    % 行が長くなった場合自動改行
+	breakindent=10pt,   % 自動改行時のインデント
+	columns=fixed,      % 文字の間隔を統一
+	basewidth=0.5em,    % 文字の横のサイズを小さく
+	numbers=left,       % 行数の位置
+	numberstyle={\scriptsize \color{black}},  % 行数のフォント
+	stepnumber=1,       % 行数の増間
+	numbersep=1zw,      % 行数の余白
+	xrightmargin=0zw,   % 左の余白
+	xleftmargin=2zw,    % 右の余白
+	keepspaces=true,    % スペースを省略せず保持
+	lineskip=-0.2ex,    % 枠線の途切れ防止
+	tabsize = 4,        % タブ数
+	showstringspaces=false,  %文字列中の半角スペースを表示させない
+	%%%%% style & color %%%%%
+	basicstyle={\small\ttfamily \color{black}}, % 基礎の文字のフォントを設定
+	identifierstyle={\small\ttfamily \color{black}},% 変数名のフォントを設定
+	commentstyle={\small \color{black}},        % コメントのフォントを設定
+	keywordstyle=[1]{\small\bfseries \color{black}}, % 予約語のフォントを設定
+	keywordstyle=[2]{\small\bfseries \color{black}}, % 関数名のフォントを設定
+	stringstyle={\small\ttfamily \color{black}},   % 文字列
+	%%%%% style %%%%%
+}
+
+\renewcommand{\lstlistingname}{コード}
+
+%% 表紙に関する設定
+%\title{python基礎}
+%\date{} % 日付いらない
+%\author{}
+
+
+\begin{document}
+%\maketitle
+
+\section*{変数}
+\countup{1}
+\section{変数とは?}
+変数とは数値や文字などを入れることができる入れ物.
+\section{変数の名前}
+変数名(変数の名前)にはルールがある.
+\begin{enumerate}
+	\item 変数に使える文字は次の文字だけ
+	      \begin{itemize}
+		      \item アルファベット (a $\sim$ z, A $\sim$ Z)
+		      \item 数字(0 $\sim$ 9)
+		      \item アンダースコア(\_) \par
+		            ※変数名の先頭(1文字目)にアンダーバー(\_) を使用できるが \ruby{避}{さ}けた方が良い
+	      \end{itemize}
+	\item 数字は変数名の先頭には使えない
+	\item 予約語(Pythonですでに使われている名前)は変数名にはできない
+	      \info{予約語の例}{if, \; elif, \; else, \; False, \; True, \; try, \; for, \; continue, \; break, \; and, \; or, \; not \; など}
+	\item アルファベットの大文字小文字は別の変数として区別される
+\end{enumerate}
+
+\begin{figure}[htp]
+	\begin{tabular}{cc} \hspace{2truemm}
+		\begin{minipage}[ht]{.46\textwidth}
+			\begin{tcolorbox}[colframe=blue!75!black,
+					colback=blue!10!white,
+					coltitle=white, fonttitle=\bfseries,
+					title=変数名として使える名前の例]
+				a, \;abc, \;ABC,\; a1, \; xxx, \; abc\_xyz, \; \_a
+			\end{tcolorbox}
+		\end{minipage} \hspace{4truemm}
+		\begin{minipage}[ht]{.46\textwidth}
+			\begin{tcolorbox}[colframe=red!75!black,
+					colback=red!10!white,
+					coltitle=white, fonttitle=\bfseries,
+					title=変数名として使えない名前の例]
+				1a, \; 2b, \;  \$a, \; 1\_, \; if, \; else, \; and, \; not
+			\end{tcolorbox}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\section{代入}
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}[ht]{.25\textwidth}
+			\begin{lstlisting}[caption=代入]
+a = 5
+b = "ABC"
+c    \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[ht]{.68\textwidth}
+			\begin{screen}
+				変数には数値や文字を入れることができる. このことを{\bf 代入}という. \par
+				$=$ があるが数学とは\ruby{違}{ちが}い, 左の例では右辺の値(5)を左辺の変数(a)に\par
+				代入することとなる. また, 代入をしていない変数は中身がなく,
+				この\par 状態のことを{\bf 未定義}という. (左の例では, 3行目の変数 c は未定義) \par
+			\end{screen}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\newpage
+\countup{2}
+\section*{数式}
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}{.4\textwidth}
+			\section{使える記号}
+			\begin{tabular}[t]{|c|c|c|c|c|}
+				\hline
+				記号 & 意味         & 例          & 結果 \\
+				\hline \hline
+				+    & 加算(足し算) & 5 + 8       & 13   \\ \hline
+				-    & 減算(引き算) & 90 - 10     & 80   \\ \hline
+				*    & 乗算(掛け算) & 4 * 7       & 28   \\ \hline
+				/    & 除算(割り算) & 7 / 2       & 3.5  \\ \hline
+				//   & 切り捨て除算 & 7 // 2      & 3    \\ \hline
+				$\%$ & 剰余(あまり) & 7 $\%$ 3    & 1    \\ \hline
+				**   & 累乗         & 3 ** 4      & 81   \\ \hline
+				()   & 括弧(かっこ) & (2 + 4) * 4 & 24   \\ \hline
+			\end{tabular}
+		\end{minipage} \hspace{20truemm}
+		\begin{minipage}{.4\textwidth}
+			\section{優先順位}
+			\begin{tabular}[t]{|c|c|c|}
+				\hline
+				優先順位 & 記号 & 意味         \\
+				\hline \hline
+				1        & ()   & 括弧(かっこ) \\ \hline
+				2        & **   & 累乗         \\ \hline
+				3        & *    & 乗算(掛け算) \\ \hline
+				         & /    & 除算(割り算) \\ \hline
+				         & //   & 切り捨て除算 \\ \hline
+				         & $\%$ & 剰余(あまり) \\ \hline
+				4        & +    & 加算(足し算) \\ \hline
+				         & -    & 減算(引き算) \\ \hline
+			\end{tabular}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+※優先順位が同じ場合は左から順に計算される. また、演算に使用できる記号はほかにもたくさんある.
+
+\countup{3}
+\section*{型(type)}
+\section{データの型の種類}
+\begin{tabular}[t]{|c|c|c|c|}
+	\hline
+	型名  & 意味   & 例                           \\
+	\hline \hline
+	int   & 整数   & 1, -12, 2022, 10, など       \\ \hline
+	float & 小数   & 3.14..., 0.5, 12.53, など    \\ \hline
+	str   & 文字列 & 'hello',  "こんにちは", など \\ \hline
+\end{tabular}
+\vspace{2truemm}
+\begin{screen}
+	数学では整数は小数(実数)の中に含まれるが, コンピューターの世界では小数と整数の\ruby{扱}{あつか}いが異なるので \par 明確に別物.
+	文字列は'(シングルクォーテーション), "(ダブルクォーテーション)記号で囲んだ部分のこと.
+\end{screen}
+
+\section{型と四則演算}
+\begin{itemize}
+	\item int 型と float 型の四則演算 \par
+	      数学の四則演算と同じ. \par
+	      int型とfloat型で四則演算を行うときは, int型をfloat型として型の\ruby{変換}{へんかん}がされ計算が行われる.
+	\item str 型と四則演算
+	      \begin{itemize}
+		      \item str型では数学のような四則演算はできず, 引き算・割り算はできない
+		      \item str型同士の足し算は文字列の結合をする(文字列をくっつける) \par
+		            (掛け算と違いstr型とint型の足し算はできない) \par
+		      \item str型とint型の掛け算は文字列をかけた分だけ\ruby{繰}{く}り返す \par
+		            (足し算と違いstr型同士で掛け算はできない)
+	      \end{itemize}
+
+	      \begin{figure}[htp]
+		      \begin{tabular}{cc} \hspace{5truemm}
+			      \begin{minipage}{.4\textwidth}
+				      \begin{lstlisting}[caption=str型と四則演算]
+# str型の四則演算 (足し算と掛け算)
+a = "1"
+b = "2"
+print(a + b)  # str型の足し算
+print(a * 3)  # str型の掛け算 \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}{.3\textwidth}
+				      \info{出力}{12 \par 111}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+
+	      \info{説明}{str型の変数aとbが結合されたため出力が 12 となった. \par a * 3で 1 を3回\ruby{繰}{く}り返すため, 出力が 111 となった.}
+\end{itemize}
+
+\section{str型の数字}
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}{.45\textwidth}
+			\begin{lstlisting}[caption=int型とstr型]
+# int型とstr型の出力
+int_val = -30    # int_valはint型(整数)
+str_val = '-30'  # str_valはstr型(文字列)
+print(int_val)
+print(str_val)
+\end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}{.3\textwidth}
+			\info{出力}{-30 \par -30}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+\info{説明}{出力の見え方は全く同じでも, -30 が int型か str型かという違いがある.}
+\newpage
+
+\section*{if文}
+\countup{4}
+もし(条件式)ならば○○(処理)を実行する, というように条件に合った時だけ ○○(処理)を行うためのもの.
+\section{if文の書き方}
+\begin{figure}[htp]
+	\begin{tabular}{ccc}
+		\begin{minipage}[t]{.3\textwidth}
+			\begin{lstlisting}[caption=if 文の基本構文-その1]
+if 条件式 :
+	処理 \end{lstlisting}
+		\end{minipage}
+		\begin{minipage}[t]{.3\textwidth}
+			\begin{lstlisting}[caption=if 文の基本構文-その2]
+if 条件式 :
+	処理1
+else :
+	処理2 \end{lstlisting}
+		\end{minipage}
+		\begin{minipage}[t]{.3\textwidth}
+			\begin{lstlisting}[caption=if 文の基本構文-その3]
+if 条件式1 :
+	処理1
+elif 条件式2 :
+	処理2
+else :
+	処理3 \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+\vspace{-10truemm}
+\begin{figure}[htp]
+	\begin{tabular}{ccc} \hspace{3truemm}
+		\begin{minipage}[t]{.28\textwidth}
+			\begin{itembox}[l]{コード4.4}
+				条件が一つのとき
+			\end{itembox}
+		\end{minipage}
+		\begin{minipage}[t]{.3\textwidth}
+			\begin{itembox}[l]{コード4.5}
+				条件が一つとその条件以外のときに処理をしたいとき
+			\end{itembox}
+		\end{minipage}
+		\begin{minipage}[t]{.33\textwidth}
+			\begin{itembox}[l]{コード4.6}
+				条件が複数のときとそれらの条件以外のときに処理をしたいとき
+			\end{itembox}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+\begin{tcolorbox}[colframe=red!75!black, colback=red!10!white, coltitle=white, fonttitle=\bfseries,
+		title=注意]
+	\begin{itemize}
+		\item 条件式の後ろには必ずコロン(:)をつける
+		\item 条件式の後ろには必ずインデント(字下げ)をする
+		\item else の後ろには条件式は書かない
+	\end{itemize}
+\end{tcolorbox}
+
+\section{条件式で使う記号}
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}[c]{.5\textwidth}
+			\begin{tabular}[t]{|c|c|c|c|c|}
+				\hline
+				記号 & 意味       & 例             & 例の意味           \\
+				\hline \hline
+				$==$ & 等しい     & $x == 5$       & $x$は5と等しい     \\ \hline
+				$!=$ & 等しくない & $x$\, $!=$ \,3 & $x$は3と等しくない \\ \hline
+				$>$  & より大きい & $5 > 2$        & 5は2より大きい     \\ \hline
+				$<$  & より小さい & $2 < 3$        & 2は3より小さい     \\ \hline
+				$>=$ & 以上       & $a >= 0$       & $a$は0以上         \\ \hline
+				$<=$ & 以下       & $b <= 0$       & $b$は0以下         \\ \hline
+			\end{tabular}
+		\end{minipage}
+		\begin{minipage}[c]{.465\textwidth}
+			\begin{screen}
+				等しい事を示す記号は, 2つの等号($==$)が \par 使われている.  \par
+				1つの等号($=$) では代入になってしまうので注意 \par
+				また, 数学では以上・以下は $\geqq$・$\leqq$ と書くが, \par プログラミングではそのように書くことが \par できないため代わりに $>=$・$<=$ と書く.
+			\end{screen}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+\newpage
+
+\section{if文の例}
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}[t]{.45\textwidth}
+			\begin{lstlisting}[caption=if文の例-その1]
+# 変数numの値が2の倍数かどうかの判定
+if num % 2 == 0 :
+	print("num は2の倍数です")
+else :
+	print("num は2の倍数ではありません") \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[t]{.45\textwidth}
+			\begin{lstlisting}[caption=if文の例-その2]
+# 変数numが正の数か負の数か0かどうかの判定
+if num > 0 :
+	print("num は正の数")
+elif num < 0 :
+	print("num は負の数")
+else :
+	print("num は0") \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+\vspace{-10truemm}
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}[t]{.46\textwidth}
+			\begin{itembox}[l]{コード4.7}
+				numの値が2の倍数ならば,  \par "num は2の倍数です" と出力.  \par
+				numの値が2の倍数でないならば,  \par "num は2の倍数ではありません" と出力. \par
+				2 の倍数の判定は num $\%$ 2 $==$ 0 で行うことができる. \par
+			\end{itembox}
+		\end{minipage} \hspace{7truemm}
+		\begin{minipage}[t]{.44\textwidth}
+			\begin{itembox}[l]{コード4.8}
+				num が 0 より大きいとき (num $>$ 0) \par "num は正の数" と出力.  \par
+				num が 0 より小さいとき (num $<$ 0) \par "num は負の数" と出力.  \par
+				それ以外のとき (つまりnum が 0 のとき) \par "num は 0" と出力.  \par
+			\end{itembox}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+
+\section*{複雑なif 文}
+\section{if 文の仕組み}
+if文の条件式からは True/False という値が返ってくる. これらは bool 型という「分類の値を持つ型」の値である.  \par
+条件式があっているときは True
+条件式が間違っているときは False \par
+if 文が実行されるときは条件式がTrueのときである.
+\section{論理演算}
+複数の条件があるときに使う.
+
+\subsection{and(論理積)}
+複数の条件がすべて合っていてほしいときに使う. \par
+すべての条件が合っているときその条件式全体はTrueとなる.
+
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}{.45\textwidth}
+			\begin{lstlisting}[caption=andの例]
+if num % 3 == 0 and num % 5 == 0 :
+	print("3 と 5 の倍数です")
+else :
+	print("3 と 5 の倍数でもありません") \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}{.45\textwidth}
+			\info{説明}{numが3の倍数かつ5の倍数ならば, \par "3 と 5 の倍数です" と出力. \par
+				numが3の倍数かつ5の倍数でないならば, \par "3 と 5 の倍数でもありません" と出力.}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\subsection{or(論理和)}
+複数の条件のどれか一つでも合っていてほしいときに使う. \par
+どれか一つでも条件が合っているときその条件式全体はTrueとなる.
+
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}{.45\textwidth}
+			\begin{lstlisting}[caption=orの例]
+if str == "中学生" or str == "小学生" :
+	print("中学生か小学生です") \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}{.45\textwidth}
+			\info{説明}{strが "中学生" か "小学生" ならば, \par "中学生か小学生です" と出力.}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\subsection{not(否定)}
+True ならば False, False ならば True となる. \par
+
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}{.45\textwidth}
+			\begin{lstlisting}[caption=notの例]
+if not (num % 2 == 0) :
+	print("奇数です")
+else :
+	print("偶数です") \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}{.46\textwidth}
+			\info{説明}{numが偶数でないならば, "奇数です" と出力. \par numが偶数ならば, "偶数です" と出力.}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\section{計算の優先順位(再び)}
+優先順位が高いほど先に計算が行われる. 同じ優先順位の場合は左から右へ順に計算される. (数学の計算と同じ) \par
+\begin{tabular}[t]{|c|c|c|}
+	\hline
+	優先順位 &              & 同じ演算のときの優先順位                    \\
+	\hline \hline
+	高       & 括弧(かっこ) &                                             \\ \hline
+	         & 算術演算     & 累乗(**)                                    \\ \hline
+	         &              & 乗算(*),除算(/),切り捨て除算(//),剰余($\%$) \\ \hline
+	         &              & 加算(+),減算(-)                             \\ \hline
+	         & 比較演算     & $>$, $>=$,  $<$,  $<=$                      \\ \hline
+	         & 論理演算     & not(否定)                                   \\ \hline
+	         &              & and(論理積)                                 \\ \hline
+	低       &              & or(論理和)                                  \\ \hline
+\end{tabular} \par
+※この表の同じ枠内での優先順位は同じ.
+
+\newpage
+
+\section*{for文}
+決められた回数繰り返したいときに使う. 繰り返し文ともいう.
+\countup{5}
+\section{for文の書き方}
+\end{document}
