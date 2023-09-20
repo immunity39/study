@@ -51,10 +51,10 @@
 
 \section{変数}
 \subsection{変数とは?}
-変数とは「箱」のようなもの．数値や文字などを入れることができる．
+変数とは「箱」のようなもの. 数値や文字などを入れることができる.
 
 \subsection{変数に使える名前}
-変数の名前(変数名)のルールには次のものがある．
+変数の名前(変数名)のルールには次のものがある.
 
 \begin{enumerate}
 	\item{変数に使える文字は次の文字だけ}
@@ -93,11 +93,11 @@
 \begin{figure}[htp]
 	\begin{tabular}{cc}
 		\begin{minipage}[ht]{.7\textwidth}
-			変数には数値や文字を入れることができるが，そのことを{\textgt {代入}}という． \par
-			{\large {=}} があるが数学とは\ruby{違}{ちが}い，右の例では右辺の値(この場合では 5)を \par
-			左辺の変数(この場合は a)に代入することとなる． \par
-			また，代入をしていない変数は中身がなく，この状態のことを\par
-			{\textgt {未定義}}という．(右の例では，三行目の変数 c は未定義) \par
+			変数には数値や文字を入れることができるが, そのことを{\textgt {代入}}という.  \par
+			{\large {=}} があるが数学とは\ruby{違}{ちが}い, 右の例では右辺の値(この場合では 5)を \par
+			左辺の変数(この場合は a)に代入することとなる.  \par
+			また, 代入をしていない変数は中身がなく, この状態のことを\par
+			{\textgt {未定義}}という. (右の例では, 三行目の変数 c は未定義) \par
 		\end{minipage}   \hspace{-4mm}
 		\begin{minipage}[ht]{.25\textwidth}
 			\begin{lstlisting}[caption=代入]
@@ -145,7 +145,7 @@ c    \end{lstlisting}
 				         & -    & 減算(引き算) \\ \hline
 			\end{tabular}
 			\par
-			※優先順位が同じ場合は左から順に計算される．
+			※優先順位が同じ場合は左から順に計算される.
 		\end{minipage}
 	\end{tabular}
 \end{figure}
@@ -159,16 +159,16 @@ c    \end{lstlisting}
 				\hline
 				型名  & 意味   & 例                           \\
 				\hline \hline
-				int   & 整数   & 1，-12，2022，10，など       \\ \hline
-				float & 小数   & 3.14...，0.5，12.53，など    \\ \hline
-				str   & 文字列 & 'hello'， "こんにちは"，など \\ \hline
+				int   & 整数   & 1, -12, 2022, 10, など       \\ \hline
+				float & 小数   & 3.14..., 0.5, 12.53, など    \\ \hline
+				str   & 文字列 & 'hello',  "こんにちは", など \\ \hline
 			\end{tabular}
 		\end{minipage} \hspace{5mm}
 		\begin{minipage}[c]{.6\textwidth}
-			数学では整数は小数(実数)の中に含まれるが，\par コンピューターの世界では小数と整数の\ruby{扱}{あつか}いが \par
-			異なるので明確に別物． \par
+			数学では整数は小数(実数)の中に含まれるが, \par コンピューターの世界では小数と整数の\ruby{扱}{あつか}いが \par
+			異なるので明確に別物.  \par
 			文字列は'(シングルクォーテーション)  \par
-			"(ダブルクォーテーション)記号で囲んだ部分のこと．
+			"(ダブルクォーテーション)記号で囲んだ部分のこと.
 		\end{minipage}
 	\end{tabular}
 \end{figure}
@@ -176,11 +176,11 @@ c    \end{lstlisting}
 \subsection{型と四則演算}
 \subsubsection{int型とfloat型と四則演算}
 数学の四則演算と同じ \par
-int型とfloat型で四則演算を行うときは，int型をfloat型として型の\ruby{変換}{へんかん}がされ計算が行われる．
+int型とfloat型で四則演算を行うときは, int型をfloat型として型の\ruby{変換}{へんかん}がされ計算が行われる.
 
 \subsubsection{str型と四則演算}
 \begin{itemize}
-	\item{str型では数学のような四則演算はできず，引き算・割り算はできない}
+	\item{str型では数学のような四則演算はできず, 引き算・割り算はできない}
 	\item{str型同士の足し算は文字列の結合(文字列をくっつける)をする} \par
 	(掛け算と違いstr型とint型の足し算はできない) \par
 	\item{str型とint型の掛け算は文字列をかけた分だけ\ruby{繰}{く}り返す} \par
@@ -209,7 +209,7 @@ print(calc)
 			\end{minipage}
 			\begin{itembox}[l]{説明}
 				str型の変数aとbがくっついたため出力が 12 となった \par
-				a * 3でaを3回\ruby{繰}{く}り返すため，1が3回\ruby{繰}{く}り返された \par 文字列111となった
+				a * 3でaを3回\ruby{繰}{く}り返すため, 1が3回\ruby{繰}{く}り返された \par 文字列111となった
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -237,7 +237,7 @@ print(str_val)
 		\end{minipage} \hspace{5mm}
 		\begin{minipage}[t]{.35\textwidth}
 			\begin{itembox}[l]{説明}
-				出力の見え方は全く同じでも，\par このプログラムにはint型か\par str型かという違いがある．
+				出力の見え方は全く同じでも, \par このプログラムにはint型か\par str型かという違いがある.
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -245,7 +245,7 @@ print(str_val)
 
 
 \section{if 文}
-もし(条件式)ならば○○(処理)を実行する，というように条件に合った時だけ \par ○○(処理)を行うためのもの．
+もし(条件式)ならば○○(処理)を実行する, というように条件に合った時だけ \par ○○(処理)を行うためのもの.
 \subsection{if 文の書き方} \vspace{-5mm}
 \begin{figure}[h]
 	\begin{tabular}{cc}
@@ -310,9 +310,9 @@ else :
 		\end{minipage}
 		\begin{minipage}[c]{.465\textwidth}
 			\begin{screen}
-				等しい事を示す記号は，二つの等号($==$)が \par 使われている． \par
+				等しい事を示す記号は, 二つの等号($==$)が \par 使われている.  \par
 				一つの等号($=$) では代入になってしまうので注意 \par
-				また，数学では以上・以下は $\geqq$・$\leqq$ と書くが，\par プログラミングではそのように書くことが \par できないため代わりに $>=$・$<=$ と書く．
+				また, 数学では以上・以下は $\geqq$・$\leqq$ と書くが, \par プログラミングではそのように書くことが \par できないため代わりに $>=$・$<=$ と書く.
 			\end{screen}
 		\end{minipage}
 	\end{tabular}
@@ -328,14 +328,14 @@ else :
 
 num = 10
 if num % 2 == 0 :
-  print("num は2の倍数です．")
+  print("num は2の倍数です. ")
 else :
-  print("num は2の倍数ではありません．") \end{lstlisting}
+  print("num は2の倍数ではありません. ") \end{lstlisting}
 		\end{minipage} \hspace{10mm}
 		\begin{minipage}[c]{.46\textwidth}
 			\begin{screen}
-				numの値が2の倍数ならば， \par "num は2の倍数です．" と表示． \par
-				numの値が2の倍数でないならば， \par "num は2の倍数ではありません．" と表示．\par
+				numの値が2の倍数ならば,  \par "num は2の倍数です. " と表示.  \par
+				numの値が2の倍数でないならば,  \par "num は2の倍数ではありません. " と表示. \par
 				({\textgt {numを2で割ったあまりが0}} [num \% 2 == 0] \par かどうかで 2の倍数かを判断する事が出来る)
 			\end{screen}
 		\end{minipage}
@@ -350,17 +350,17 @@ else :
 
 num = 0
 if num > 0 :
-  print("num は正の数です．")
+  print("num は正の数です. ")
 elif num < 0 :
-  print("num は負の数です．")
+  print("num は負の数です. ")
 else :
-  print("num は0です．") \end{lstlisting}
+  print("num は0です. ") \end{lstlisting}
 		\end{minipage} \hspace{10mm}
 		\begin{minipage}[c]{.4\textwidth}
 			\begin{screen}
-				num が 0 より大きいなら (num $>$ 0) \par "num は正の数です．" と表示． \par
-				そうでないとき，num が 0 より小さいなら (num $<$ 0) "num は負の数です．" と表示． \par
-				それ以外のとき (つまりnum $==$ 0) \par "num は0です．" と表示． \par
+				num が 0 より大きいなら (num $>$ 0) \par "num は正の数です. " と表示.  \par
+				そうでないとき, num が 0 より小さいなら (num $<$ 0) "num は負の数です. " と表示.  \par
+				それ以外のとき (つまりnum $==$ 0) \par "num は0です. " と表示.  \par
 			\end{screen}
 		\end{minipage}
 	\end{tabular}
@@ -368,12 +368,12 @@ else :
 
 \section{複雑なif 文}
 \subsection{if 文の仕組み}
-条件式からは True/False という値が返ってくる．これらは bool 型という「分類の値を持つ型」の値である． \par
+条件式からは True/False という値が返ってくる. これらは bool 型という「分類の値を持つ型」の値である.  \par
 条件式があっているときは True
 条件式が間違っているときは False \par
-if 文が実行されるときは条件式がTrueの値を持つときである．
+if 文が実行されるときは条件式がTrueの値を持つときである.
 \subsection{論理演算}
-複数の条件があるときに使う．
+複数の条件があるときに使う.
 \subsubsection{and(論理積)}
 複数の条件がすべて合っていてほしいときに使う \par
 すべての条件が合っているときその条件式全体はTrueとなる
@@ -404,9 +404,9 @@ else :
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				変数a, b の値は二つとも1である． \par
-				1つ目のif 文の条件式は(a == 1)，(b == 1) と２つとも \par 合っているためTrueとなりYes～が出力された． \par
-				しかし，2つ目のif 文では (a == 1)，(b == 0) とbの \par 条件式が合っていないためFalseとなりNo～が出力された． \par
+				変数a, b の値は二つとも1である.  \par
+				1つ目のif 文の条件式は(a == 1), (b == 1) と２つとも \par 合っているためTrueとなりYes～が出力された.  \par
+				しかし, 2つ目のif 文では (a == 1), (b == 0) とbの \par 条件式が合っていないためFalseとなりNo～が出力された.  \par
 			\end{itembox}
 
 		\end{minipage} \hspace{5mm}
@@ -443,9 +443,9 @@ else :
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				変数a, b の値は二つとも1である． \par
-				1つ目のif 文の条件式は(a == 1)，(b == 1) と２つとも \par 合っているためTrueとなりYes～が出力された．\par
-				2つ目のif 文では (a == 1)，(b == 0) とbの条件式が \par 合っていないがaの条件式が合っているためTrueとなり \par Yes～が出力された．
+				変数a, b の値は二つとも1である.  \par
+				1つ目のif 文の条件式は(a == 1), (b == 1) と２つとも \par 合っているためTrueとなりYes～が出力された. \par
+				2つ目のif 文では (a == 1), (b == 0) とbの条件式が \par 合っていないがaの条件式が合っているためTrueとなり \par Yes～が出力された.
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -480,9 +480,9 @@ else :
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				変数a の値は1である． \par
-				1つ目のif 文の条件式は(a == 1)と合っているため \par Trueとなるが，それを否定しているためFalseとなり， \par No～が出力された．\par
-				2つ目のif 文では (a == 0)と条件式が合っていないが， \par その条件式を否定しているためTrueとなりYes～が \par 出力された．
+				変数a の値は1である.  \par
+				1つ目のif 文の条件式は(a == 1)と合っているため \par Trueとなるが, それを否定しているためFalseとなり,  \par No～が出力された. \par
+				2つ目のif 文では (a == 0)と条件式が合っていないが,  \par その条件式を否定しているためTrueとなりYes～が \par 出力された.
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -490,8 +490,8 @@ else :
 
 % \subsection{条件式の言い換え}
 \subsection{計算の優先順位(再び)}
-優先順位が高いほど先に計算が行われる． \par
-同じ場合は左から右へ順に計算される． \par
+優先順位が高いほど先に計算が行われる.  \par
+同じ場合は左から右へ順に計算される.  \par
 \begin{tabular}[t]{|c|c|c|}
 	\hline
 	優先順位 &              & 同じ演算のときの優先順位                  \\
@@ -500,14 +500,14 @@ else :
 	         & 算術演算     & 累乗(**)                                  \\ \hline
 	         &              & 乗算(*),除算(/),切り捨て除算(//),剰余(\%) \\ \hline
 	         &              & 加算(+),減算(-)                           \\ \hline
-	         & 比較演算     & $>$，$>=$， $<$， $<=$                    \\ \hline
+	         & 比較演算     & $>$, $>=$,  $<$,  $<=$                    \\ \hline
 	低       & 論理演算     & not(否定)                                 \\ \hline
 	         &              & and(論理積)                               \\ \hline
 	         &              & or(論理和)                                \\ \hline
 \end{tabular}
 
 \section{for 文}
-決められた回数\ruby{繰}{く}り返したいときに使うもの．\ruby{繰}{く}り返し文ともいう．
+決められた回数\ruby{繰}{く}り返したいときに使うもの. \ruby{繰}{く}り返し文ともいう.
 \subsection{for 文の書き方} \vspace{-5mm}
 \begin{figure}[h]
 	\begin{tabular}{cc}
@@ -518,7 +518,7 @@ for 変数名 in 繰り返す回数 :
   繰り返したい処理2 \end{lstlisting}
 		\end{minipage} \hspace{10mm}
 		\begin{minipage}[c]{.6\textwidth}
-			for が書かれている行の最後には必ず\;{\textgt {:\;(コロン)}}を入れる． \par
+			for が書かれている行の最後には必ず\;{\textgt {:\;(コロン)}}を入れる.  \par
 			\ruby{繰}{く}り返したい処理の前にはタブを入れる \par
 			(タブの有無で\ruby{繰}{く}り返す処理の範囲が変わってしまう)
 		\end{minipage}
@@ -564,8 +564,8 @@ print(s) # タブがないのでfor文の範囲外 \end{lstlisting}
 
 
 \section{while 文}
-for 文と同じく\ruby{繰}{く}り返しが必要な処理を行うために使うもの． \par
-条件式がTrueの間\ruby{繰}{く}り返しが続き，Falseのとき\ruby{繰}{く}り返しが終了する．
+for 文と同じく\ruby{繰}{く}り返しが必要な処理を行うために使うもの.  \par
+条件式がTrueの間\ruby{繰}{く}り返しが続き, Falseのとき\ruby{繰}{く}り返しが終了する.
 \subsection{while 文の書き方}
 \begin{figure}[h]
 	\begin{tabular}{cc}
@@ -581,13 +581,13 @@ while True : # もしくは条件式がずっとTrue
 		\end{minipage}
 	\end{tabular}
 \end{figure}
-while が書かれている行の最後には必ず\;{\textgt {:\;(コロン)}}を入れる． \par
-while 文は条件式がTrueのとき処理を\ruby{繰}{く}り返すので，「while True:」のときは永遠に処理を\ruby{繰}{く}り返す．
-また，指定した条件式を間違えたり，条件式で変数を使っているときに\ruby{繰}{く}り返し処理のなかで変数を条件式を満たすように変化させなかった場合も条件式の結果がTrueだと永遠に処理を\ruby{繰}{く}り返してしまう．
+while が書かれている行の最後には必ず\;{\textgt {:\;(コロン)}}を入れる.  \par
+while 文は条件式がTrueのとき処理を\ruby{繰}{く}り返すので, 「while True:」のときは永遠に処理を\ruby{繰}{く}り返す.
+また, 指定した条件式を間違えたり, 条件式で変数を使っているときに\ruby{繰}{く}り返し処理のなかで変数を条件式を満たすように変化させなかった場合も条件式の結果がTrueだと永遠に処理を\ruby{繰}{く}り返してしまう.
 \newpage
 \subsection{break}
-for 文や while 文の\ruby{繰}{く}り返し処理の中で\ruby{繰}{く}り返しを中断したいときに使う．\par
-break を使うとfor 文や while 文の\ruby{繰}{く}り返し処理自体が終了する．
+for 文や while 文の\ruby{繰}{く}り返し処理の中で\ruby{繰}{く}り返しを中断したいときに使う. \par
+break を使うとfor 文や while 文の\ruby{繰}{く}り返し処理自体が終了する.
 \begin{figure}[h]
 	\begin{tabular}{ccc}
 		\begin{minipage}[t]{.45\textwidth}
@@ -612,16 +612,16 @@ while True :
 		\end{minipage} \hspace{5mm}
 		\begin{minipage}[t]{.4\textwidth}
 			\begin{itembox}[l]{説明}
-				while Trueで永遠に\ruby{繰}{く}り返しが実行 \par されそうだが，
-				n が 5 のときに breakによってループが終了したため，出力が \par 5まで表示された． \par
+				while Trueで永遠に\ruby{繰}{く}り返しが実行 \par されそうだが,
+				n が 5 のときに breakによってループが終了したため, 出力が \par 5まで表示された.  \par
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
 \end{figure}
 
 \subsection{continue}
-\ruby{繰}{く}り返し処理の中で特定の処理のときだけ，その処理をスキップする場合に使う． \par
-continue を使ってもfor 文やwhile 文の\ruby{繰}{く}り返し自体は終了しない．
+\ruby{繰}{く}り返し処理の中で特定の処理のときだけ, その処理をスキップする場合に使う.  \par
+continue を使ってもfor 文やwhile 文の\ruby{繰}{く}り返し自体は終了しない.
 \begin{figure}[h]
 	\begin{tabular}{ccc}
 		\begin{minipage}[t]{.45\textwidth}
@@ -645,8 +645,8 @@ while n < 5 :
 		\end{minipage} \hspace{5mm}
 		\begin{minipage}[t]{.4\textwidth}
 			\begin{itembox}[l]{説明}
-				n が 3 のときに continueによって\par ループがスキップされたため，\par
-				出力が3のときだけ結果が表示され \par なかった．
+				n が 3 のときに continueによって\par ループがスキップされたため, \par
+				出力が3のときだけ結果が表示され \par なかった.
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -674,9 +674,9 @@ while True :
 	\end{tabular}
 \end{figure}
 \begin{screen}
-	whileの条件式による終了か break による終了かの違いだけで，どちらも，n が 5 のときに\ruby{繰}{く}り返し処理が \par
-	終了する同じ処理である．ただし，breakでの処理の方では，breakを忘れてしまうと処理が永遠に\ruby{繰}{く}り返す\par
-	ので注意が必要となる．
+	whileの条件式による終了か break による終了かの違いだけで, どちらも, n が 5 のときに\ruby{繰}{く}り返し処理が \par
+	終了する同じ処理である. ただし, breakでの処理の方では, breakを忘れてしまうと処理が永遠に\ruby{繰}{く}り返す\par
+	ので注意が必要となる.
 \end{screen}
 \newpage
 \section{関数-その１}
@@ -684,13 +684,13 @@ while True :
 	\begin{tabular}{cc}
 		\begin{minipage}{.6\textwidth}
 			\subsection{関数とは}
-			関数とは，値を入れる(入れなくてもよい)と決められた処理を\par
-			実行してその結果を返すプログラムの部品のようなもの．\par
-			入れる値のことを{\textgt {引数(ひきすう)}}と言い， 値を処理して\par 返ってきた結果を
-			{\textgt {返り値/戻り値(かえりち/もどりち)}}と言う． \par
-			関数にはPythonにすでにあるものや自分で作れるものがある． \par
+			関数とは, 値を入れる(入れなくてもよい)と決められた処理を\par
+			実行してその結果を返すプログラムの部品のようなもの. \par
+			入れる値のことを{\textgt {引数(ひきすう)}}と言い,  値を処理して\par 返ってきた結果を
+			{\textgt {返り値/戻り値(かえりち/もどりち)}}と言う.  \par
+			関数にはPythonにすでにあるものや自分で作れるものがある.  \par
 
-			関数の引数に関数を入れたり，関数の返り値を変数に \par 代入することが出来る． \par
+			関数の引数に関数を入れたり, 関数の返り値を変数に \par 代入することが出来る.  \par
 		\end{minipage}
 		\hspace{10mm}
 		\begin{minipage}{.3\textwidth}
@@ -706,7 +706,7 @@ while True :
 
 \subsection{print関数}
 print関数：文字列や数値の計算結果を出力する関数 \par
-引数：文字列や数値，計算結果
+引数：文字列や数値, 計算結果
 \subsubsection{print関数の使い方} \vspace{-5mm}
 \begin{figure}[h]
 	\begin{tabular}{ccc}
@@ -733,7 +733,7 @@ print(a + b) \end{lstlisting}
 		\end{minipage} \hspace{5mm}
 		\begin{minipage}[t]{.3\textwidth}
 			\begin{itembox}[l]{説明}
-				()の中の文字列や数値，\par 変数の値，計算式の結果を \par
+				()の中の文字列や数値, \par 変数の値, 計算式の結果を \par
 				出力する
 			\end{itembox}
 		\end{minipage}
@@ -747,17 +747,17 @@ print(a + b) \end{lstlisting}
 # print関数で変数と文字を一緒に使う
 
 name = "タロウ"
-print(f'{name}さん，こんにちは') \end{lstlisting}
+print(f'{name}さん, こんにちは') \end{lstlisting}
 		\end{minipage} \hspace{5mm}
 		\begin{minipage}[t]{.5\textwidth}
 			\begin{minipage}[t]{.6\textwidth}
 				\begin{itembox}[l]{出力}
-					タロウさん，こんにちは
+					タロウさん, こんにちは
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				文字列をf''で囲み，変数を\{\}で囲むことで \par
-				変数の値を文字列と一緒に出力することができる．
+				文字列をf''で囲み, 変数を\{\}で囲むことで \par
+				変数の値を文字列と一緒に出力することができる.
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -783,7 +783,7 @@ print(l) \end{lstlisting}
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				変数s の値 "abcde" の長さが5 のため， \par
+				変数s の値 "abcde" の長さが5 のため,  \par
 				len関数の戻り値は5 となる
 			\end{itembox}
 		\end{minipage}
@@ -794,9 +794,9 @@ print(l) \end{lstlisting}
 % \newpage
 \subsection{range関数}
 一定の間隔での数値の並びを生成する関数 \par
-range関数の引数の与え方は，range(開始値, 終了値, ステップ幅)ある． \par
-開始値とステップ幅はそれぞれ省略でき，省略した場合は(開始値：0, ステップ幅：1)が初期値として  \par
-与えられる．生成できる値は開始値から{\textgt{終了値より手前の整数}}までの範囲である．
+range関数の引数の与え方は, range(開始値, 終了値, ステップ幅)ある.  \par
+開始値とステップ幅はそれぞれ省略でき, 省略した場合は(開始値：0, ステップ幅：1)が初期値として  \par
+与えられる. 生成できる値は開始値から{\textgt{終了値より手前の整数}}までの範囲である.
 \vspace{-5mm}
 \begin{figure}[h]
 	\begin{tabular}{cc}
@@ -816,9 +816,9 @@ for i in range(0, 10, 2) :
 		\end{minipage} \hspace{5mm}
 		\begin{minipage}[t]{.6\textwidth}
 			\begin{itembox}[l]{説明}
-				3 行目では開始値，ステップ幅が省略されているため，0から始まり，1ずつ上がっていく\par
-				6 行目では5から始まり，9まで上がっている\par
-				9 行目ではステップ幅が2のため，2ずつ上がり，終了値10，つまり9までの範囲で値が生成される
+				3 行目では開始値, ステップ幅が省略されているため, 0から始まり, 1ずつ上がっていく\par
+				6 行目では5から始まり, 9まで上がっている\par
+				9 行目ではステップ幅が2のため, 2ずつ上がり, 終了値10, つまり9までの範囲で値が生成される
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -827,7 +827,7 @@ for i in range(0, 10, 2) :
 \subsection{max, min関数}
 \subsubsection{max関数}
 2つ以上の引数でその中から最大の値を返す関数 \par
-引数：数値，文字列，リスト \hspace{5mm}
+引数：数値, 文字列, リスト \hspace{5mm}
 返り値：最大値
 \vspace{-5mm}
 \begin{figure}[h]
@@ -858,7 +858,7 @@ print(max_str) \end{lstlisting}
 \newpage
 \subsubsection{min関数}
 2つ以上の引数でその中から最小の値を返す関数 \par
-引数：数値，文字列，リスト \hspace{5mm}
+引数：数値, 文字列, リスト \hspace{5mm}
 返り値：最小値
 \vspace{-5mm}
 \begin{figure}[h]
@@ -912,7 +912,7 @@ print(value) \end{lstlisting}
 		\end{minipage} \hspace{5mm}
 		\begin{minipage}[t]{.35\textwidth}
 			\begin{itembox}[l]{説明}
-				入力したabcdefがvalueに \par 代入され，print関数で出力される
+				入力したabcdefがvalueに \par 代入され, print関数で出力される
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -942,7 +942,7 @@ print(type(float_val)) \end{lstlisting}
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				int\_valの値はint型，float\_valの値はfloat型と \par データの種類が出力された
+				int\_valの値はint型, float\_valの値はfloat型と \par データの種類が出力された
 			\end{itembox}
 		\end{minipage} \hspace{5mm}
 	\end{tabular}
@@ -971,8 +971,8 @@ print(type(int_val)) \end{lstlisting}
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				int型は整数型のため小数が整数に\ruby{変換}{へんかん}され， 3.1415 が 3 と \par なった．
-				type関数の返り値からもint型になったことが分かる．
+				int型は整数型のため小数が整数に\ruby{変換}{へんかん}され,  3.1415 が 3 と \par なった.
+				type関数の返り値からもint型になったことが分かる.
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -999,8 +999,8 @@ print(type(float_val)) \end{lstlisting}
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				float型は小数の型のため整数が小数に\ruby{変換}{へんかん}され，100 が \par 100.0 となった．
-				type関数の返り値からもfloat型に \par なったことが分かる．
+				float型は小数の型のため整数が小数に\ruby{変換}{へんかん}され, 100 が \par 100.0 となった.
+				type関数の返り値からもfloat型に \par なったことが分かる.
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -1037,7 +1037,7 @@ print(type(str_val)) \end{lstlisting}
 \newpage
 \section{list (リスト)}
 \subsection{リストとは}
-複数のデータに順番を付けて一緒のものとしたいときに利用するもの．
+複数のデータに順番を付けて一緒のものとしたいときに利用するもの.
 \subsection{リストの生成} \vspace{-10mm}
 \begin{figure}[h]
 	\begin{tabular}{cc}
@@ -1055,7 +1055,7 @@ c = [t, 1, 3, 4]
 		\begin{minipage}[t]{.6\textwidth}
 			\begin{itembox}[l]{説明}
 				リストの生成には [ ] の中に {\LARGE ,} で区切り具体的にリストの \par
-				中身を書くことで生成できる．\par
+				中身を書くことで生成できる. \par
 				6,7 行目のように変数を入れてもよい
 			\end{itembox}
 		\end{minipage}
@@ -1065,8 +1065,8 @@ c = [t, 1, 3, 4]
 
 %\newpage
 \subsection{リストの使い方}
-リストの個々のデータのことを要素という言い，要素の順番を指定する値のことを添え字という言い方をする． \par
-また，要素の順番は 0 から始まる．
+リストの個々のデータのことを要素という言い, 要素の順番を指定する値のことを添え字という言い方をする.  \par
+また, 要素の順番は 0 から始まる.
 \subsubsection{要素へのアクセス方法} \vspace{-5mm}
 \begin{figure}[h]
 	\begin{tabular}{cc}
@@ -1091,9 +1091,9 @@ print(a[3], a[-1]) \end{lstlisting}
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				リストの 0 番目である値 5 が出力される． \par
-				添え字には負の値を指定することができ， 負の値を
-				指定した\par 場合はリストの後ろの要素から指定されていく． \par
+				リストの 0 番目である値 5 が出力される.  \par
+				添え字には負の値を指定することができ,  負の値を
+				指定した\par 場合はリストの後ろの要素から指定されていく.  \par
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -1117,8 +1117,8 @@ print(a[0:3]) \end{lstlisting}
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				添え字に[先頭番号:終了番号]を与えると，リストの一部だけを取り出すことができる．\par
-				このとき，終了番号の手前までの値が取り出せることに注意する． \par
+				添え字に[先頭番号:終了番号]を与えると, リストの一部だけを取り出すことができる. \par
+				このとき, 終了番号の手前までの値が取り出せることに注意する.  \par
 				このような添字の指定の仕方をスライスという　\par
 			\end{itembox}
 		\end{minipage}
@@ -1144,8 +1144,8 @@ print(a) \end{lstlisting}
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				リストa の最後に 2 が追加された． \par
-				append()を使うとき()の中は{\textgt{追加したい値}}を書く．
+				リストa の最後に 2 が追加された.  \par
+				append()を使うとき()の中は{\textgt{追加したい値}}を書く.
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -1168,8 +1168,8 @@ print(a) \end{lstlisting}
 				\end{itembox}
 			\end{minipage}
 			\begin{itembox}[l]{説明}
-				リストの 0 番目である値 5 がリストa から削除された． \par
-				pop()を使うときは()の中は，{\textgt{削除したい値の添え字}}にする． \par
+				リストの 0 番目である値 5 がリストa から削除された.  \par
+				pop()を使うときは()の中は, {\textgt{削除したい値の添え字}}にする.  \par
 			\end{itembox}
 		\end{minipage}
 	\end{tabular}
@@ -1196,40 +1196,40 @@ def 関数名(引数) :
 
 \begin{itembox}[l]{関数を作るときのルール}
 	\begin{itemize}
-		\item{複数の関数を作るときは，関数名が被らないように注意をすること．\par
-		            関数名のルールは変数名の時と同じ．}
-		\item{引数は2つ以上でも良く，そのときは {\textbf {,}}で引数と引数を区切る．\par
-		また，引数はなくても良い．しかし，その場合でも関数名の後ろには（）をつけなければいけない}
-		\item{return 文は特定の条件が成立した場合の if 文の中など，関数定義の最後
-		            以外の場所に書いてもよい．いらない場合は書かなくてもよい．}
-		\item{関数の返り値には計算式を書いても良い． \par}
+		\item{複数の関数を作るときは, 関数名が被らないように注意をすること. \par
+		            関数名のルールは変数名の時と同じ. }
+		\item{引数は2つ以上でも良く, そのときは {\textbf {,}}で引数と引数を区切る. \par
+		また, 引数はなくても良い. しかし, その場合でも関数名の後ろには（）をつけなければいけない}
+		\item{return 文は特定の条件が成立した場合の if 文の中など, 関数定義の最後
+		            以外の場所に書いてもよい. いらない場合は書かなくてもよい. }
+		\item{関数の返り値には計算式を書いても良い.  \par}
 		\item{関数を作る時の def 後の( )内の引数名と実際に呼び出して使う時の引数名
-		            は一致している必要はない．}
+		            は一致している必要はない. }
 	\end{itemize}
 \end{itembox}
 
 \newpage
 
 \subsection{変数が使える範囲(スコープ)}
-変数が使える有効な範囲のことをスコープという． \par
-大きく分けて関数内で使える範囲と，プログラム全体で使える範囲がある．
+変数が使える有効な範囲のことをスコープという.  \par
+大きく分けて関数内で使える範囲と, プログラム全体で使える範囲がある.
 \subsubsection{グローバル変数とローカル変数}
 \begin{itemize}
 	\item {ローカル変数　：限られた範囲で使われる変数} \par
-	      関数内で定義された（代入された）変数は関数内でのみ利用可能で，関数の実行ごとに関数の実行が終了すれば失われる
+	      関数内で定義された（代入された）変数は関数内でのみ利用可能で, 関数の実行ごとに関数の実行が終了すれば失われる
 
 	\item {グローバル変数：プログラム全体で使える変数} \par
 	      関数外で定義されている変数は値を読み取ることのみ可能
-	      関数内で global 宣言された変数のみ，グローバル変数に代入可能．
-	      このglobal宣言をせずに代入をするとグローバル変数がローカル変数になってしまう．
+	      関数内で global 宣言された変数のみ, グローバル変数に代入可能.
+	      このglobal宣言をせずに代入をするとグローバル変数がローカル変数になってしまう.
 \end{itemize}
 
 % \newpage
 
 \section{モジュール}
 \subsection{モジュールのとは？}
-拡張機能のこと．Pythonでは様々なモジュールをインポートして利用する． \par
-モジュール自体はPython のプロジェクトファイルでしかない．
+拡張機能のこと. Pythonでは様々なモジュールをインポートして利用する.  \par
+モジュール自体はPython のプロジェクトファイルでしかない.
 \subsection{モジュールのインポート方法}
 モジュール名のインポート方法は大きく分けて以下の２つ
 \begin{itemize}
@@ -1239,29 +1239,29 @@ def 関数名(引数) :
 \subsubsection{import と from について}
 \begin{itemize}
 	\item{import～} \par
-	モジュール全体を利用する，という宣言 \par
-	モジュール名の関数を使うときは，関数の前にモジュール名を付ける必要がある．
+	モジュール全体を利用する, という宣言 \par
+	モジュール名の関数を使うときは, 関数の前にモジュール名を付ける必要がある.
 	\item{from～} \par
-	モジュールの一部を利用する，という宣言 \par
+	モジュールの一部を利用する, という宣言 \par
 	1つ1つ呼び出す代わりに関数を使うときに関数の前にモジュール名は付けない \par
-	from モジュール名 import * はそのモジュールの関数や変数をすべて直接呼び出している．
+	from モジュール名 import * はそのモジュールの関数や変数をすべて直接呼び出している.
 \end{itemize}
 
 \subsection{import～と from～の使い分け}
-基本は自由．自分やチームのルールがある場合はそれに従って書く．\par
-変数名や関数名はかぶる可能性が有るため，少数しかモジュールや関数を使わないなら from～を \par
-たくさんのモジュールを使うときは import～を使う方がいい場合が多い．
+基本は自由. 自分やチームのルールがある場合はそれに従って書く. \par
+変数名や関数名はかぶる可能性が有るため, 少数しかモジュールや関数を使わないなら from～を \par
+たくさんのモジュールを使うときは import～を使う方がいい場合が多い.
 
 \newpage
 \subsection{インポートの仕方}
 \begin{figure}[h]
 	\begin{tabular}{cc}
 		\begin{minipage}[t]{.45\textwidth}
-			自作のモジュールを使うときは，モジュールの\par
+			自作のモジュールを使うときは, モジュールの\par
 			ファイルが使いたいプログラムのファイルと \par
-			同じ場所にあり， モジュール名と同じファイルが\par ないように気を付ける． \par
-			右のような自作モジュール(sample.py)があると \par する．
-			このときの，インポート方法を紹介する．
+			同じ場所にあり,  モジュール名と同じファイルが\par ないように気を付ける.  \par
+			右のような自作モジュール(sample.py)があると \par する.
+			このときの, インポート方法を紹介する.
 		\end{minipage} \hspace{15mm}
 		\begin{minipage}[t]{.4\textwidth}
 			\vspace{-10mm}
@@ -1290,8 +1290,8 @@ sample.hello \end{lstlisting}
 		\begin{minipage}[t]{.6\textwidth}
 			\begin{screen}
 				import モジュール名 \par
-				のときは モジュール名. というのを頭につけて変数や関数の \par 名前を書く．
-				今回であれば sample. をつける必要がある．
+				のときは モジュール名. というのを頭につけて変数や関数の \par 名前を書く.
+				今回であれば sample. をつける必要がある.
 			\end{screen}
 		\end{minipage}
 	\end{tabular}
@@ -1309,9 +1309,9 @@ sp.hello \end{lstlisting}
 		\begin{minipage}[t]{.6\textwidth}
 			\begin{screen}
 				import モジュール名 as 別の名前 \par
-				のときはモジュール名を別の名前に変更して，変更した名前を\par 頭につけて変数や関数の名前を書く． \par
-				今回であれば sample. ではなく sp. をつける必要がある． \par
-				この方法はモジュール名が長いものを省略して書きたいときによく使われる方法である．
+				のときはモジュール名を別の名前に変更して, 変更した名前を\par 頭につけて変数や関数の名前を書く.  \par
+				今回であれば sample. ではなく sp. をつける必要がある.  \par
+				この方法はモジュール名が長いものを省略して書きたいときによく使われる方法である.
 			\end{screen}
 		\end{minipage}
 	\end{tabular}
@@ -1329,8 +1329,8 @@ hello \end{lstlisting}
 		\begin{minipage}[t]{.6\textwidth}
 			\begin{screen}
 				from モジュール名 import モジュールの関数や変数(複数可) \par
-				のときは モジュール名. というのを頭につけて関数の名前や\par 変数を書く必要がなくなる．\par
-				しかし，宣言していない関数や変数は使えないため注意\par (今回では hello は宣言していないため使えない)
+				のときは モジュール名. というのを頭につけて関数の名前や\par 変数を書く必要がなくなる. \par
+				しかし, 宣言していない関数や変数は使えないため注意\par (今回では hello は宣言していないため使えない)
 			\end{screen}
 		\end{minipage}
 	\end{tabular}
@@ -1348,7 +1348,7 @@ hello \end{lstlisting}
 		\begin{minipage}[t]{.6\textwidth}
 			\begin{screen}
 				from モジュール名 import * \par
-				のときはモジュールの関数や変数を import の後ろに\par 書かなくてもモジュールの関数や変数が使えるようになる．
+				のときはモジュールの関数や変数を import の後ろに\par 書かなくてもモジュールの関数や変数が使えるようになる.
 			\end{screen}
 		\end{minipage}
 	\end{tabular}
