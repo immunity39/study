@@ -6,7 +6,6 @@
 \usepackage{tcolorbox, ascmac} % 枠つけ用
 \pagestyle{headings} % ヘッダー
 
-
 \newcommand{\countup}[1]{\setcounter{chapter}{#1} \setcounter{section}{0}}
 \newcommand{\info}[2]{\begin{tcolorbox}[colframe=gray, colback=black!10!white, coltitle=white, fonttitle=\bfseries, title={#1}]
 {#2}\end{tcolorbox}}
@@ -42,12 +41,16 @@
 
 %% 表紙に関する設定
 %\title{python基礎}
-%\date{} % 日付いらない
+%\date{\today} % 日付いらない
 %\author{}
 
 
 \begin{document}
 %\maketitle
+
+%% 目次の出力
+%\tableofcontents
+%\clearpage
 
 \section*{変数}
 \countup{1}
@@ -101,10 +104,10 @@ c    \end{lstlisting}
 		\end{minipage} \hspace{5truemm}
 		\begin{minipage}[ht]{.68\textwidth}
 			\begin{screen}
-				変数には数値や文字を入れることができる. このことを{\bf 代入}という. \par
+				変数には数値や文字を入れることができる. このことを\textgt{代入}という. \par
 				$=$ があるが数学とは\ruby{違}{ちが}い, 左の例では右辺の値(5)を左辺の変数(a)に\par
 				代入することとなる. また, 代入をしていない変数は中身がなく,
-				この\par 状態のことを{\bf 未定義}という. (左の例では, 3行目の変数 c は未定義) \par
+				この\par 状態のことを\textgt{未定義}という. (左の例では, 3行目の変数 c は未定義) \par
 			\end{screen}
 		\end{minipage}
 	\end{tabular}
@@ -432,9 +435,812 @@ else :
 ※この表の同じ枠内での優先順位は同じ.
 
 \newpage
-
-\section*{for文}
-決められた回数繰り返したいときに使う. 繰り返し文ともいう.
+\section*{繰り返し文}
 \countup{5}
+\section{for文}
+決められた回数繰り返したいときに使う.
 \section{for文の書き方}
+\begin{figure}[htp]
+	\begin{tabular}{c}
+		\begin{minipage}{.35\textwidth}
+			\begin{lstlisting}[caption=for文の基本構文]
+for 変数名 in 繰り返す回数 :
+	繰り返したい処理1
+	繰り返したい処理2 \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\begin{tcolorbox}[colframe=red!75!black,
+		colback=red!10!white,
+		coltitle=white, fonttitle=\bfseries,
+		title=注意]
+	\begin{itemize}
+		\item for文の後ろには必ずコロン(:)をつける
+		\item for文の処理はインデント(字下げ)をする (インデントの有無で繰り返す処理の範囲が変わってしまう)
+	\end{itemize}
+\end{tcolorbox}
+
+\section{for文の例}
+\begin{figure}[htp]
+	\begin{tabular}{ccc}
+		\begin{minipage}[ht]{.42\textwidth}
+			\begin{lstlisting}[caption=for文の例]
+# 0 から 5 までのすべて足したときの値
+s = 0
+for i in range(6) :
+	print(i)       # 繰り返し部分
+	s = s + i  # 繰り返し部分
+
+print(s) # for文の範囲外
+\end{lstlisting}
+		\end{minipage} \hspace{6truemm}
+		\begin{minipage}[ht]{.15\textwidth}
+			\info{出力}{0 \par 1 \par 2 \par 3 \par 4 \par 5 \par 15}
+		\end{minipage} \hspace{6truemm}
+		\begin{minipage}[ht]{.29\textwidth}
+			\info{説明}{繰り返し：1回目 \par
+				\hspace{13mm}：2回目 \par
+				\hspace{13mm}：3回目 \par
+				\hspace{13mm}：4回目 \par
+				\hspace{13mm}：5回目 \par
+				\hspace{13mm}：6回目 \par
+				7行目のprint関数の出力}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+\newpage
+
+\section{whlie文}
+for文と同じく\ruby{繰}{く}り返しが必要な処理を行うために使うもの.  \par
+条件式がTrueの間\ruby{繰}{く}り返しが続き, Falseのとき\ruby{繰}{く}り返しが終了する.
+
+\section{while文の書き方}
+\begin{figure}[htp]
+	\begin{tabular}{c}
+		\begin{minipage}{.55\textwidth}
+			\begin{lstlisting}[caption=while文の基本構文]
+while 条件式 :
+	条件式が'True'のとき繰り返したい処理\end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\begin{tcolorbox}[colframe=red!75!black,
+		colback=red!10!white,
+		coltitle=white, fonttitle=\bfseries,
+		title=注意]
+	\begin{itemize}
+		\item while文の後ろには必ずコロン(:)をつける
+		\item while文の処理はインデント(字下げ)をする \par
+		      (インデントの有無で繰り返す処理の範囲が変わってしまう)
+	\end{itemize}
+\end{tcolorbox}
+
+\begin{figure}[htp]
+	\begin{tabular}{c}
+		\begin{minipage}{.55\textwidth}
+			\begin{lstlisting}[caption=while文の注意点]
+while True : # もしくは条件式がずっとTrue
+	繰り返したい処理  # 処理が永遠に繰り返される \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\info{while文の注意点}{
+	while文は条件式がTrueのとき処理を\ruby{繰}{く}り返すので, 「while True:」のときは永遠に処理を\ruby{繰}{く}り返す.
+	また, 指定した条件式を間違えたり, 条件式で変数を使っているときに\ruby{繰}{く}り返し処理のなかで変数を条件式を満たすように変化させなかった場合も条件式の結果がTrueだと永遠に処理を\ruby{繰}{く}り返してしまう.}
+
+\begin{figure}[htp]
+	\begin{tabular}{c}
+		\begin{minipage}{.8\textwidth}
+			\begin{lstlisting}[caption=while文の注意点-例1]
+# 1 から 10 までの数字を出力 (n への加算操作がないため永遠に繰り返す)
+n = 1
+while n < 10 :
+	print(n) \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\begin{figure}[htp]
+	\begin{tabular}{c}
+		\begin{minipage}{.8\textwidth}
+			\begin{lstlisting}[caption=while文の注意点-例2]
+# a が 5 のとき Buzz を出力して終了 (break を忘れているため永遠に繰り返す)
+a = 1
+while True :
+	a = a + 1
+	if a == 5 :
+		print("Buzz") \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\newpage
+
+\section{break}
+for文や while文の\ruby{繰}{く}り返し処理の中で\ruby{繰}{く}り返しを中断したいときに使う. \par
+break を使うとfor文や while文の\textgt{\ruby{繰}{く}り返し処理自体が終了}する.
+\begin{figure}[h]
+	\begin{tabular}{ccc}
+		\begin{minipage}[ht]{.3\textwidth}
+			\begin{lstlisting}[caption=break の使い方]
+n = 0
+while True :
+  n = n + 1
+  print(f'n = {n}')
+  if n == 5:
+    break    \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[ht]{.15\textwidth}
+			\info{出力}{n = 1 \par n = 2 \par n = 3 \par n = 4 \par n = 5}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[ht]{.4\textwidth}
+			\info{説明}{while Trueで永遠に\ruby{繰}{く}り返しが実行 \par されそうだが,
+				n が 5 のときに breakによってループが終了するため, 5 まで出力された.  \par}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\section{continue}
+\ruby{繰}{く}り返し処理の中で特定の処理のときだけ, その処理をスキップする場合に使う.  \par
+continue を使ってもfor文やwhile文の\textgt{\ruby{繰}{く}り返し自体は終了しない}.
+\begin{figure}[h]
+	\begin{tabular}{ccc}
+		\begin{minipage}[ht]{.3\textwidth}
+			\begin{lstlisting}[caption=continue の使い方]
+n = 0
+while n < 5 :
+  n = n + 1
+  if n == 3:
+    continue
+  print(f'n = {n}')  \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[ht]{.15\textwidth}
+			\info{出力}{n = 1 \par n = 2 \par n = 3 \par n = 4 \par n = 5}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[ht]{.4\textwidth}
+			\info{説明}{n が 3 のときに continueによって\par ループがスキップされたため, \par
+				3 のときだけ結果が出力されなかった.}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\section{条件式とTrueとbreak}
+\begin{figure}[h]
+	\begin{tabular}{cc}
+		\begin{minipage}[t]{.4\textwidth}
+			\begin{lstlisting}[caption=条件式による繰り返しの終了]
+n = 0
+while n < 5 :
+  n = n + 1
+  print(f'n = {n}') \end{lstlisting}
+		\end{minipage} \hspace{10truemm}
+		\begin{minipage}[t]{.4\textwidth}
+			\begin{lstlisting}[caption=break による繰り返しの終了]
+n = 0
+while True :
+  n = n + 1
+  print(f'n = {n}')
+  if n == 5:
+    break    \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\begin{tcolorbox}[colframe=gray, colback=black!10!white]
+	whileの条件式による終了か break による終了かの違いだけで, どちらも, n が 5 のときに\ruby{繰}{く}り返し処理が \par
+	終了する同じ処理である. ただし, breakでの処理の方では, breakを忘れてしまうと処理が永遠に\ruby{繰}{く}り返す\par
+	ので注意が必要となる.
+\end{tcolorbox}
+
+\newpage
+
+\section*{関数}
+\countup{6}
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}[t]{.6\textwidth}
+			\section{関数とは}
+			関数とは, 決められた処理を実行してその結果を返す \par プログラムの部品のようなもの. \par
+			関数には値を入れることができ, 入れる値のことを
+			{\textgt {引数 \par (ひきすう)}}と言い,  値を処理して返ってきた結果を \par
+			{\textgt {返り値/戻り値(かえりち/もどりち)}}と言う.  \par
+			関数にはPythonですでにあるものや自分で作れるものがある.  \par
+
+			関数の引数に関数を入れたり, 関数の返り値を変数に代入する \par ことが出来る.  \par
+		\end{minipage}
+		\begin{minipage}[t]{.35\textwidth}
+			\section{関数を使うときの例}
+			\begin{lstlisting}[caption=関数]
+# 関数の使い方
+
+関数名(引数) # 引数あり
+関数名()    # 引数なし \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\section{Pythonでよく使う関数}
+\begin{itemize}
+	\item print関数 \par
+	      画面に文字列や変数の値を出力する関数. print関数の引数には文字列や変数を入れることができる. \par
+	      引数：文字列や数値, 計算結果 \\
+	      \begin{itemize}
+		      \item[$\circ$] print関数の使い方
+			      \begin{figure}[htp]
+				      \begin{tabular}{ccc} \hspace{10truemm}
+					      \begin{minipage}{.3\textwidth}
+						      \begin{lstlisting}[caption=print関数]
+print("こんにちは")
+print(1000)
+a = 10
+b = 30
+print(a)
+print(a + b) \end{lstlisting}
+					      \end{minipage} \hspace{3truemm}
+					      \begin{minipage}{.17\textwidth}
+						      \info{出力}{こんにちは \par 1000 \par 10 \par 40}
+					      \end{minipage} \hspace{3truemm}
+					      \begin{minipage}{.3\textwidth}
+						      \info{説明}{引数の文字列や数値, 変数の値, 計算式の計算結果を出力する}
+					      \end{minipage}
+				      \end{tabular}
+			      \end{figure}
+
+		      \item[$\circ $] print 関数で変数と文字を一緒に使う
+			      \begin{figure}[htp]
+				      \begin{tabular}{cc} \hspace{10truemm}
+					      \begin{minipage}[ht]{.35\textwidth}
+						      \begin{lstlisting}[caption=fフォーマット]
+name = "タロウ"
+print(f'{name}さん、こんにちは')\end{lstlisting}
+					      \end{minipage} \hspace{10truemm}
+					      \begin{minipage}[ht]{.4\textwidth}
+						      \info{出力}{タロウさん、こんにちは}
+					      \end{minipage} \hspace{3truemm}
+				      \end{tabular}
+			      \end{figure}
+			      \info{説明}{文字列をf''で囲み (f'文字列' となるように), \{ \} の中に変数を入れることで変数と文字列を \par 一緒に出力することができる.}
+	      \end{itemize}
+\end{itemize}
+
+\newpage
+
+\begin{itemize}
+	\item range関数 \par
+	      一定の間隔での数値の並びを生成する関数 \par
+	      range関数の引数の与え方は, range(開始値, 終了値, ステップ幅)ある.  \par
+	      開始値とステップ幅はそれぞれ省略でき, 省略した場合は(開始値：0, ステップ幅：1)が初期値となる.  \par
+	      生成できる値は開始値から{\textgt{終了値より手前の整数}}までの範囲である.
+
+	      \begin{figure}[htp]
+		      \begin{tabular}{cc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.31\textwidth}
+				      \begin{lstlisting}[caption=range関数]
+for i in range(5) :
+	# 0, 1, 2, 3, 4
+
+for i in range(5, 10) :
+	# 5, 6, 7, 8, 9
+
+for i in range(0, 10, 2) :
+	# 0, 2, 4, 6, 8
+	\end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.58\textwidth}
+				      \info{説明}{3 行目では開始値, ステップ幅が省略されているため, 0から\par 始まり, 1ずつ上がっていく\par
+					      6 行目では5から始まり, 9までの値を生成する\par
+					      9 行目ではステップ幅が2のため, 2ずつ上がり, 終了値10, \par つまり9までの範囲で値を生成する}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+\end{itemize}
+
+\begin{itemize}
+	\item max関数 \par
+	      2つ以上の引数でその中から最大の値を返す関数 \par
+	      引数：数値, 文字列, リスト \hspace{5truemm}
+	      返り値：最大値
+	      \begin{figure}[htp]
+		      \begin{tabular}{cc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.4\textwidth}
+				      \begin{lstlisting}[caption=max関数]
+max_num = max(1, 3, 4, 2)
+max_str = max("abc", "xyz", "ijk")
+print(max_num)
+print(max_str) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.15\textwidth}
+				      \info{出力}{4 \par xyz}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+
+	      \info{説明}{max\_numには(1, 3, 4, 2)の中で一番大きい値である4が代入される. \par
+		      max\_strには("abc", "xyz", "ijk")の中で一番大きい値であるxyzが代入される.}
+\end{itemize}
+
+\begin{itemize}
+	\item min関数 \par
+	      2つ以上の引数でその中から最小の値を返す関数 \par
+	      引数：数値, 文字列, リスト \hspace{5mm}
+	      返り値：最小値
+	      \begin{figure}[htp]
+		      \begin{tabular}{cc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.4\textwidth}
+				      \begin{lstlisting}[caption=min関数]
+min_num = min(1, 3, 4, 2)
+min_str = min("abc", "xyz", "ijk")
+print(min_num)
+print(min_str) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.15\textwidth}
+				      \info{出力}{1 \par abc}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+
+	      \info{説明}{min\_numには(1, 3, 4, 2)の中で一番小さい値である1が代入される. \par
+		      min\_strには("abc", "xyz", "ijk")の中で一番小さい値であるabcが代入される.}
+\end{itemize}
+\newpage
+
+\begin{itemize}
+	\item input関数 \par
+	      変数に任意(好き)な文字列を代入する事が出来る関数 \par
+	      引数：なし
+	      \begin{figure}[htp]
+		      \begin{tabular}{ccc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.4\textwidth}
+				      \begin{lstlisting}[caption=input関数]
+value = input()
+print(value) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.15\textwidth}
+				      \info{入力}{abcdef}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.15\textwidth}
+				      \info{出力}{abcdef}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+
+	      \info{説明}{入力したabcdefがvalueに代入され, print関数で出力される}
+\end{itemize}
+
+\begin{itemize}
+	\item type関数 \par
+	      データの種類を調べる関数 \par
+	      引数：データ \hspace{5mm}
+	      返り値：種類名
+	      \begin{figure}[htp]
+		      \begin{tabular}{ccc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.28\textwidth}
+				      \begin{lstlisting}[caption=type関数]
+int_val = 3
+float_val = 3.14
+print(type(int_val))
+print(type(float_val)) \end{lstlisting}
+			      \end{minipage} \hspace{2.5truemm}
+			      \begin{minipage}[ht]{.2\textwidth}
+				      \info{出力}{$<$class 'int'$>$ \par $<$class 'float'$>$ \par}
+			      \end{minipage} \hspace{2.5truemm}
+			      \begin{minipage}[ht]{.4\textwidth}
+				      \info{説明}{int\_valの値はint型, float\_valの値はfloat型とデータの種類が出力された}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+\end{itemize}
+
+\begin{itemize}
+	\item len関数 \par
+	      引数の値の長さを返す関数
+	      \begin{figure}[htp]
+		      \begin{tabular}{ccc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.28\textwidth}
+				      \begin{lstlisting}[caption=len関数]
+s = "abcde"
+l = len(s)
+print(l) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.15\textwidth}
+				      \info{出力}{5}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.4\textwidth}
+				      \info{説明}{変数s の値 "abcde" の長さが5 のため,  \par
+					      len関数の戻り値は5 となる}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+\end{itemize}
+
+\begin{itemize}
+	\item sum関数 \par
+	      引数の値の合計を返す関数 \par
+	      \begin{figure}[htp]
+		      \begin{tabular}{ccc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.28\textwidth}
+				      \begin{lstlisting}[caption=sum関数]
+l = [1, 2, 3, 4, 5]
+s = sum(l)
+print(s) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.15\textwidth}
+				      \info{出力}{15}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.4\textwidth}
+				      \info{説明}{変数l の値 [1, 2, 3, 4, 5] の合計が15 のため, sum関数の戻り値は15 となる}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+\end{itemize}
+
+\newpage
+
+\begin{itemize}
+	\item int関数 \par
+	      引数に与えられた値をint型に\ruby{変換}{へんかん}する関数
+	      \begin{figure}[htp]
+		      \begin{tabular}{cc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.3\textwidth}
+				      \begin{lstlisting}[caption=int関数]
+float_val = 3.1415
+int_val   = int(float_val)
+print(int_val)
+print(type(int_val)) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.2\textwidth}
+				      \info{出力}{3 \par $<$class 'int'$>$}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+	      \info{説明}{int型は整数型のため小数が整数に\ruby{変換}{へんかん}され, 3.1415 が 3 となった. \par
+		      type関数の返り値からもint型になったことが分かる.}
+\end{itemize}
+
+\begin{itemize}
+	\item float関数 \par
+	      引数に与えられた値をfloat型に\ruby{変換}{へんかん}する関数
+	      \begin{figure}[htp]
+		      \begin{tabular}{cc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.3\textwidth}
+				      \begin{lstlisting}[caption=float関数]
+int_val   = 100
+float_val = float(int_val)
+print(float_val)
+print(type(float_val)) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.2\textwidth}
+				      \info{出力}{100.0 \par $<$class 'float'$>$}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+	      \info{説明}{float型は小数の型のため整数が小数に\ruby{変換}{へんかん}され, 100 が 100.0 となった. \par
+		      type関数の返り値からもfloat型になったことが分かる.}
+\end{itemize}
+
+\begin{itemize}
+	\item str関数 \par
+	      引数に与えられた値をstr型に\ruby{変換}{へんかん}する関数
+	      \begin{figure}[htp]
+		      \begin{tabular}{cc} \hspace{5truemm}
+			      \begin{minipage}[ht]{.3\textwidth}
+				      \begin{lstlisting}[caption=sum関数]
+int_val = 100
+str_val = str(int_val)
+print(str_val)
+print(type(str_val)) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.2\textwidth}
+				      \info{出力}{100 \par $<$class 'str'$>$}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+	      \info{説明}{見た目ではわからないがint型からstr型に\ruby{変換}{へんかん}されたことが type関数によってわかる}
+\end{itemize}
+
+\newpage
+
+\section*{list(リスト)}
+\countup{7}
+\section{リストとは}
+複数の値に順番をつけてまとめて扱うためのデータ型の一つ. \par
+\section{リストの生成}
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}[ht]{.3\textwidth}
+			\begin{lstlisting}[caption=リストの生成]
+a = [5, 1, 3, 4]
+b = ['abc', 'def', 'ghi']
+
+t = 5
+c = [t, 1, 3, 4]
+\end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[ht]{.6\textwidth}
+			\info{説明}{リストの生成には [ ] の中に {\LARGE ,} で区切り具体的にリストの \par
+			中身を書くことで生成できる. \par 4,5 行目のように変数を入れてもよい}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\section{リストの使い方}
+リストの個々のデータのことを\textgt{要素}という言い, 要素の順番を指定する値のことを\textgt{\ruby{添}{そ}え字}という言い方をする.  \par
+また, 要素の順番は 0 から始まる.
+\subsection{要素へのアクセス方法}
+\begin{figure}[htp]
+	\begin{tabular}{ccc}
+		\begin{minipage}[ht]{.3\textwidth}
+			\begin{lstlisting}[caption=要素へのアクセス方法1]
+#    要素の順番
+#    0  1  2  3
+a = [5, 1, 3, 4]
+print(a[0])
+
+# 正の添え字と負の添え字
+print(a[3], a[-1]) \end{lstlisting}
+		\end{minipage} \hspace{3truemm}
+		\begin{minipage}[ht]{.15\textwidth}
+			\info{出力}{5 \par 4 4}
+		\end{minipage} \hspace{3truemm}
+		\begin{minipage}[ht]{.46\textwidth}
+			\info{説明}{リストの 0 番目である値 5 が出力される. \par
+				添え字には負の値を指定することができ, \par 負の値を指定した場合はリストの後ろの \par 要素から指定されていく.}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\begin{figure}[htp]
+	\begin{tabular}{ccc}
+		\begin{minipage}[ht]{.3\textwidth}
+			\begin{lstlisting}[caption=要素へのアクセス方法2]
+#    要素の順番
+#    0  1  2  3
+a = [5, 1, 3, 4]
+print(a[0:3]) \end{lstlisting}
+		\end{minipage} \hspace{3truemm}
+		\begin{minipage}[ht]{.15\textwidth}
+			\info{出力}{[5, 1, 3]}
+		\end{minipage}
+	\end{tabular}
+	\info{説明}{添え字に[先頭番号:終了番号]を与えると, リストの一部だけを取り出すことができる. \par
+	このとき, 終了番号の手前までの値が取り出せることに注意する.
+	このような添字の指定の仕方を\textgt{スライス}という. \par}
+\end{figure}
+
+\subsection{リストの基本操作}
+\begin{itemize}
+	\item 要素の追加 \par
+	      リストの末尾に要素を追加する
+	      \begin{figure}[htp]
+		      \begin{tabular}{ccc}  \hspace{5truemm}
+			      \begin{minipage}[ht]{.3\textwidth}
+				      \begin{lstlisting}[caption=要素の追加]
+a = [1, 2, 3, 4]
+a.append(5)
+print(a) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.25\textwidth}
+				      \info{出力}{[1, 2, 3, 4, 5]}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+	      \info{説明}{リストの末尾に指定した値が追加される.
+	      append()を使うとき()の中は{\textgt{追加したい値}}を書く. \par
+	      リストへの追加はappend()以外にもinsert()関数を使うことで任意の位置に追加することができる.}
+\end{itemize}
+
+\begin{itemize}
+	\item 要素の削除 \par
+	      リストの末尾の要素を削除する
+	      \begin{figure}[htp]
+		      \begin{tabular}{cc}  \hspace{5truemm}
+			      \begin{minipage}[ht]{.3\textwidth}
+				      \begin{lstlisting}[caption=要素の削除]
+a = [1, 2, 3, 4]
+a.pop()
+print(a)
+a.pop(0)
+print(a) \end{lstlisting}
+			      \end{minipage} \hspace{5truemm}
+			      \begin{minipage}[ht]{.25\textwidth}
+				      \info{出力}{[1, 2, 3] \par [2, 3]}
+			      \end{minipage}
+		      \end{tabular}
+	      \end{figure}
+
+	      \info{説明}{引数を指定しない場合はリストの末尾を, 指定した場合は指定した添え字の値が削除される. \par
+		      pop()を使うときは()の中は, {\textgt{削除したい値の添え字}}にする.}
+\end{itemize}
+
+\newpage
+
+\section{スライス}
+リストの一部を取り出すことができる. \par
+スライスの書き方は[先頭番号:終了番号]である. \par
+このとき, 終了番号の手前までの値が取り出せることに注意する. \par
+\begin{figure}[htp]
+	\begin{tabular}{ccc}
+		\begin{minipage}[ht]{.3\textwidth}
+			\begin{lstlisting}[caption=スライス]
+a = [1, 2, 3, 4, 5]
+print(a[0:3])
+print(a[1:2:4])
+print(a[2:])
+print(a[:3]) \end{lstlisting}
+		\end{minipage} \hspace{3truemm}
+		\begin{minipage}[ht]{.15\textwidth}
+			\info{出力}{[1, 2, 3] \par [2, 3, 4] \par [3, 4, 5] \par [1, 2, 3]}
+		\end{minipage}
+	\end{tabular}
+	\info{説明}{1行目ではリストの0番目から2番目までの値が取り出されている. \par
+		2行目ではリストの1番目から3番目までの値が取り出されている. \par
+		3行目ではリストの2番目から最後までの値が取り出されている. \par
+		4行目ではリストの0番目から2番目までの値が取り出されている.}
+\end{figure}
+
+\section*{自作関数}
+\countup{8}
+\section{自作関数とは}
+自分で関数を作ることができる. \par
+関数を作ることで, 何度も同じ処理を書く必要がなくなり, プログラムの見通しが良くなる. \par
+\section{自作関数の書き方}
+\begin{figure}[htp]
+	\begin{tabular}{c}
+		\begin{minipage}[ht]{.6\textwidth}
+			\begin{lstlisting}[caption=自作関数の書き方]
+def 関数名(引数) :
+	実行したいプログラム
+	return 返り値        # 返り値がある場合 \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+
+	\begin{itembox}[l]{関数を作るときのルール}
+		\begin{itemize}
+			\item 複数の関数を作るときは, 関数名が被らないように注意をすること.  関数名のルールは変数名の時と同じ.
+			\item 引数は2つ以上でもよい. そのときは {\textgt {,}}で引数と引数を区切る. \par
+			      また, 引数はなくてもよい. しかし, その場合でも関数名の後ろには（）をつけなければいけない
+			\item return 文は関数定義の最後以外の場所, if文の中などに書いてもよい. \par 返り値がない, いらない場合はreturn 文を書かなくてもよい.
+			\item 関数の返り値には計算式を書いてもよい.
+			\item 関数を作る時の def 後の( )内の引数名と実際に呼び出して使う時の引数名は一致している必要はない.
+			\item 関数の中身はインデントを揃えて書く.
+		\end{itemize}
+	\end{itembox}
+\end{figure}
+
+\section*{スコープ}
+\countup{9}
+\section{スコープとは}
+スコープとは, 変数が有効な範囲のことである. スコープには大きく分けて2つの種類がある. \par
+\begin{itemize}
+	\item {ローカル変数　：限られた範囲で使われる変数} \par
+	      関数内で定義された（代入された）変数は関数内でのみ利用可能で, 関数の実行ごとに関数の実行が終了すれば失われる
+
+	\item {グローバル変数：プログラム全体で使える変数} \par
+	      関数外で定義されている変数は値を読み取ることのみ可能.
+	      関数内で global 宣言された変数のみ, グローバル変数に代入可能.
+	      このglobal宣言をせずに代入をするとグローバル変数がローカル変数になってしまう.
+\end{itemize}
+
+\section*{モジュール}
+\countup{10}
+\section{モジュールとは}
+モジュールとは, Pythonでよく使われる関数や定数をまとめたもの. \par
+モジュールを使うことで, そのモジュールに定義されている関数や定数を使うことができる. \par
+モジュールも自作することができる.
+\section{モジュールのインポート方法}
+モジュールのインポート方法は大きく分けて以下の２つ
+\begin{itemize}
+	\item{import モジュール名}
+	\item{from モジュール名 import 機能名}
+\end{itemize}
+\subsection{import と from について}
+\begin{itemize}
+	\item{import～} \par
+	モジュール全体を利用する, という宣言 \par
+	モジュールの関数を使うときは, 関数の前にモジュール名を付ける必要がある.
+	\item{from～} \par
+	モジュールの一部を利用する, という宣言 \par
+	1つ1つ呼び出す代わりに関数を使うときに関数の前にモジュール名は付けない. \par
+	from モジュール名 import * はそのモジュールの関数や変数をすべて直接呼び出している.
+\end{itemize}
+
+\info{import～と from～の使い分け}{基本は自由. 自分やチームのルールがある場合はそれに従って書く. \par
+	変数名や関数名はかぶる可能性が有るため, 少数しかモジュールや関数を使わないなら from～を \par
+	たくさんのモジュールを使うときは import～を使う方がいい場合が多い.}
+
+\newpage
+
+\section{自作モジュールを使用したインポートの紹介}
+自作のモジュールを使うときは, モジュールのファイルが使いたいプログラムのファイルと同じ場所にあり, \par モジュール名と同じファイルがないように気を付ける.  \par
+次のような自作モジュール(sample.py)があるとする. このときの, インポート方法とモジュールの変数へ\par のアクセス方法を紹介する. \par
+
+\begin{figure}[htp]
+	\begin{tabular}{c}
+		\begin{minipage}{.4\textwidth}
+			\begin{lstlisting}[caption=sample.py]
+hello = "こんにちは"
+color = ["red", "green", "黒"]
+
+def right(var_list) :
+	ret = var_list[-1]
+	print(ret)
+	return ret \end{lstlisting}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}[ht]{.3\textwidth}
+			\begin{lstlisting}[caption=インポートの仕方1]
+import sample
+
+sample.color
+sample.hello \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[ht]{.6\textwidth}
+			\info{import モジュール名}{モジュール名. というのを頭につけて変数や関数の名前を書く. \par
+				今回であれば sample. をつける必要がある.}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}[ht]{.3\textwidth}
+			\begin{lstlisting}[caption=インポートの仕方2]
+import sample as sp
+
+sp.color
+sp.hello \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[ht]{.6\textwidth}
+			\info{import モジュール名 as 別の名前}{モジュール名を別の名前に変更して, 変更した名前を頭につけて変数や関数の名前を書く.
+				今回であれば sample. ではなく sp. をつける必要がある.  \par
+				この方法はモジュール名が長いものを省略して書きたいときによく使われる方法である.}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+\newpage
+
+\begin{figure}[htp]
+	\begin{tabular}{c}
+		\begin{minipage}[ht]{.4\textwidth}
+			\begin{lstlisting}[caption=インポートの仕方3]
+from sample import color, right
+
+color
+hello \end{lstlisting}
+		\end{minipage}
+	\end{tabular} \hspace{15truemm}
+\end{figure}
+
+\begin{figure}[htp] \vspace{-6truemm}
+	\begin{tabular}{c} \hspace{3truemm}
+		\begin{minipage}[ht]{.915\textwidth}
+			\info{from モジュール名 import モジュールの関数や変数(複数可)}{モジュール名. というのを頭につけて関数の名前や変数を書く必要がなくなる. \par
+				しかし, 宣言していない関数や変数は使えないため注意 (今回では hello は宣言していないため\par 使えない)}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
+\begin{figure}[htp]
+	\begin{tabular}{cc}
+		\begin{minipage}[ht]{.3\textwidth}
+			\begin{lstlisting}[caption=インポートの仕方4]
+from sample import *
+
+color
+hello \end{lstlisting}
+		\end{minipage} \hspace{5truemm}
+		\begin{minipage}[ht]{.6\textwidth}
+			\info{from モジュール名 import *}{モジュールの関数や変数を import の後ろに\par 書かなくてもモジュールの関数や変数が使えるようになる.}
+		\end{minipage}
+	\end{tabular}
+\end{figure}
+
 \end{document}
