@@ -1,0 +1,39 @@
+%---------------------------------------------
+% パッケージの読み込み
+\usepackage{amsmath, amssymb, amsthm} % 数式用
+\usepackage{listings, jvlisting, jlisting, color} % ソースコードの記述用
+\usepackage{okumacro} % ルビ用
+\usepackage{tcolorbox, ascmac} % 枠つけ用
+\usepackage{bm} % ベクトル用
+\usepackage{graphicx} % 画像用
+\usepackage{comment} % コメントアウト用
+%---------------------------------------------
+
+% 表紙の設定 \cover{タイトル}{日付}{著者}
+\newcommand{\cover}[3]{\title{#1} \author{#2} \date{#3}}
+
+
+%---------------------------------------------
+% 数学系
+
+% 黒板太字
+\newcommand{\N}{\mathbb{N}} % 自然数
+\newcommand{\Z}{\mathbb{Z}} % 整数
+\newcommand{\Q}{\mathbb{Q}} % 有理数
+\newcommand{\R}{\mathbb{R}} % 実数
+\newcommand{\C}{\mathbb{C}} % 複素数
+
+\newcommand{\diff}{\mathrm{d}} % 微分記号
+
+
+% ベクトル
+% 2ベクトル
+\newcommand{\vectw}[2]{\left( \begin{array}{r} #1 \\ #2 \end{array} \right)}
+% 3ベクトル
+\newcommand{\vecth}[3]{\left( \begin{array}{r} #1 \\ #2 \\ #3 \end{array} \right)}
+%---------------------------------------------
+
+%---------------------------------------------
+\newcommand{\info}[2]{\begin{tcolorbox}[colframe=gray, colback=black!10!white, coltitle=white, fonttitle=\bfseries, title={#1}]
+		{#2}\end{tcolorbox}}
+%---------------------------------------------
