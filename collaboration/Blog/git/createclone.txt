@@ -1,0 +1,78 @@
+事前情報
+VScodeのインストールとGit Bashのインストール
+GitHub上でリポジトリの作成
+今回は immunity39/git-tester.gitを使用
+git graphのインストール
+
+//ルートディレクトリで行う
+mkdir git-test
+cd git-test
+初期化
+git init
+クローンの作成
+git clone https://github.com/immunity39/git-tester.git
+ユーザ名
+git config --global user.name [ユーザ名]
+メール設定
+git config --global user.email [メール]
+確認
+git config --global user.name
+git config --global user.email
+git config remote.origin.url
+もしURLが違う場合は、
+git remote set-url origin https://github.com/immunity39/git-tester.git
+
+//git graphの確認
+[1] first-git-status
+[2] git config setting
+
+//file作成
+[3] create test.txt
+[4] git graph1
+[5] test commit // == git add .
+[6] commit result1 // == git commit -m "comment"
+[7] sync changes // == git push
+[8] git graph2
+
+//wsl remoteのインストール
+[9] wsl
+[10] open wsl
+sudo apt-get install git
+git clone https://github.com/immunity39/git-tester.git
+
+create branch
+[11] create branch2
+
+install git graph
+git pull
+[12] pull situation1
+
+git marge
+[13] marge status
+[14] after marge
+
+[15] test.txt
+
+[16] git push
+[17] git status1
+[18] text update1
+
+// switch situation
+[19] git pull
+[20] git update2
+[21] git push
+[22] git graph situation
+
+// switch situation
+[22] git commit
+[23] git marge
+[24] git conflict error
+
+[25] marge status
+[26] select change
+[27] git commit
+[28] git graph
+
+[29] git data status
+
+[30] github status
