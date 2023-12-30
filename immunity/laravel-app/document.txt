@@ -1,0 +1,7 @@
+laravel application
+起動
+./vendor/bin/sail up -d
+
+落とす
+./vendor/bin/sail down
+
